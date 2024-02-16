@@ -1,4 +1,5 @@
 import Head from 'next/head';
+
 import type { FC } from 'react';
 
 export const AppHead: FC = () => (
