@@ -1,4 +1,5 @@
-import { globalStyle } from '@vanilla-extract/css';
+import { createVar, globalStyle } from '@vanilla-extract/css';
+import { calc } from '@vanilla-extract/css-utils';
 
 import { themeVars } from './theme.css';
 
@@ -22,4 +23,22 @@ globalStyle(':root', {
   ].join(', '),
 });
 
-globalStyle('body', { backgroundColor: themeVars.colors.surface });
+export const layoutPaddingInlineVar = createVar();
+
+globalStyle('body', {
+  vars: { [layoutPaddingInlineVar]: '1rem' },
+
+  backgroundColor: themeVars.colors.surface,
+
+  '@media': {
+    [themeVars.breakpoints.md]: {
+      vars: {
+        [layoutPaddingInlineVar]: `max(1rem, ${calc('100vw')
+          .subtract('77.5rem')
+          .divide(2)})`,
+      },
+    },
+  },
+});
+
+globalStyle('main', { padding: `0 ${layoutPaddingInlineVar}` });

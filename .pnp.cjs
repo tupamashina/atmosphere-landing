@@ -32,6 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@vanilla-extract/css", "npm:1.14.1"],\
           ["@vanilla-extract/css-utils", "npm:0.1.3"],\
           ["@vanilla-extract/next-plugin", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:2.3.6"],\
+          ["clsx", "npm:2.1.0"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:14.1.0"],\
           ["eslint-config-prettier", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:9.1.0"],\
@@ -1630,6 +1631,7 @@ const RAW_RUNTIME_STATE =
           ["@vanilla-extract/css", "npm:1.14.1"],\
           ["@vanilla-extract/css-utils", "npm:0.1.3"],\
           ["@vanilla-extract/next-plugin", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:2.3.6"],\
+          ["clsx", "npm:2.1.0"],\
           ["eslint", "npm:8.56.0"],\
           ["eslint-config-next", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:14.1.0"],\
           ["eslint-config-prettier", "virtual:c16fc26a63ae97db78ebdb4ec9c0731407098531220cee64878bc1d7a5d1d2d1bc46c99c7568bf63955f1d358fbb793ee1d572dc2c062204b6c02418c4f959f9#npm:9.1.0"],\
@@ -1849,6 +1851,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/client-only-npm-0.0.1-07d3e9505c-0c16bf660d.zip/node_modules/client-only/",\
         "packageDependencies": [\
           ["client-only", "npm:0.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["clsx", [\
+      ["npm:2.1.0", {\
+        "packageLocation": "./.yarn/cache/clsx-npm-2.1.0-29d286e1de-2e0ce7c3b6.zip/node_modules/clsx/",\
+        "packageDependencies": [\
+          ["clsx", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
