@@ -16,8 +16,8 @@ export const thirdSectionSubtitleClass = style([
 
 export const thirdSectionListClass = style({
   display: 'grid',
-  gridTemplateColumns: 'repeat(3, 16rem)',
-  gridAutoRows: '16rem',
+  gridTemplateColumns: 'repeat(3, 16.5rem)',
+  gridAutoRows: '16.5rem',
   justifyContent: 'center',
   gap: '1.5rem',
   marginTop: '2rem',

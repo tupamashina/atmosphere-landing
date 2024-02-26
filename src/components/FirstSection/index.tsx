@@ -10,19 +10,19 @@ import * as styles from './styles.css';
 const listData = [
   {
     Icon: icons.LocationOn,
-    text: 'Nesciunt eius libero natus iste error amet, eaque cupiditate at',
+    text: 'Только Российские комплектующие',
   },
   {
     Icon: icons.Factory,
-    text: 'Deleniti dolorem, minima doloribus sit architecto voluptas velit ipsa quia',
+    text: 'Для пищевой, нефтехимической и холодильной отраслей',
   },
   {
     Icon: icons.ElectricCar,
-    text: 'Nihil, sint beatae quasi odio repudiandae, culpa ratione minus nisi voluptas',
+    text: 'Эффективны как TESLA за счет витых тонкостенных трубок',
   },
   {
-    Icon: icons.Manufacturing,
-    text: 'Doloribus, quos odit quod commodi, quae quaerat illo optio',
+    Icon: icons.PrecisionManufacturing,
+    text: 'Роботизированное производство теплообменников АН',
   },
 ];
 
@@ -39,14 +39,12 @@ export const FirstSection: FC = () => {
         className={styles.firstSectionBgImgClass}
       />
 
-      <h2 className={displayTypographyClass.md}>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
-        est?
-      </h2>
+      <h2 className={displayTypographyClass.md}>Что мы предлагаем?</h2>
 
       <p className={styles.firstSectionSubtitleClass}>
-        Ratione corrupti placeat corporis modi alias asperiores porro velit
-        mollitia.
+        Потребление тепловых энергоресурсов 1 корпусом промышленного предприятия
+        исчисляется миллионами миллиардов. Мы утверждаем, что эту сумму можно
+        сократить на 27%
       </p>
 
       <ul className={styles.firstSectionListClass}>

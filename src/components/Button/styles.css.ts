@@ -147,7 +147,7 @@ const baseChildrenClass = style({
 
 export const buttonIconClass = style([
   baseChildrenClass,
-  { marginRight: '0.5rem' },
+  { marginRight: '0.5rem', width: lhVar, height: lhVar },
 ]);
 
 export const buttonTextClass = style([baseChildrenClass]);

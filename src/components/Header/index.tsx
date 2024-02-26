@@ -22,8 +22,8 @@ export const Header: FC = () => {
   return (
     <header className={styles.headerClass}>
       <p className={styles.headerSloganClass}>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit, dolorem
-        eligendi
+        Энергия эффективности: поможем снизить затраты на тепловую энергию на
+        27%
       </p>
 
       <h1 className={styles.headerTitleClass}>

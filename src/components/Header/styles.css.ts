@@ -17,7 +17,7 @@ export const headerClass = style([
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
     alignItems: 'center',
-    gap: '9rem',
+    gap: '6rem',
     padding: `1rem ${layoutPaddingInlineVar} 0`,
     color: themeVars.colors.onSurface,
   },

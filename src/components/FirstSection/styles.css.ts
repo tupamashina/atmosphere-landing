@@ -27,13 +27,13 @@ export const firstSectionBgImgClass = style({
 
 export const firstSectionSubtitleClass = style([
   headlineTypographyClass.sm,
-  { margin: '1.5rem 0 3rem' },
+  { margin: '1rem 0 3rem' },
 ]);
 
 export const firstSectionListClass = style({
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
-  gap: '2.5rem',
+  gap: '4.5rem',
 });
 
 export const firstSectionListItemClass = style([

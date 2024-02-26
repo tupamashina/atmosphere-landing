@@ -29,7 +29,6 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
 
       {icon &&
         createElement(icon, {
-          size: lhVar,
           'aria-hidden': true,
           className: styles.buttonIconClass,
         })}

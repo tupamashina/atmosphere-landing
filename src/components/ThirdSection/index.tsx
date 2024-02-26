@@ -13,42 +13,42 @@ import type { FC } from 'react';
 const listData = [
   {
     Icon: icons.PiggyBank,
-    title: 'Adipisicing',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quae quas sequi adipisci expedita?',
+    title: 'Экономия',
+    text: 'За счет установки погодозависимой автоматики, высокоэффективного, качественного оборудования и счетчиков расхода тепла, экономия на энергоресурсах составляет до 300%!',
   },
   {
     Icon: icons.Crosshair,
-    title: 'Elit itaque',
-    text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam harum, tempora quibusdam eligendi accusamus ipsa optio praesentium magni blanditiis officiis laborum aspernatur iste architecto.',
+    title: 'Автоматизация',
+    text: 'Автоматика следит за температурой внутри и снаружи помещения, и в зависимости от потребности в тепле, самостоятельно регулирует работу системы для обеспечения заданного режима работы !',
   },
   {
     Icon: icons.ChartLineDown,
-    title: 'Doloremque',
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus amet ipsa cum illum alias, corrupti perspiciatis necessitatibus ut fuga dolor.',
+    title: 'Снижение затрат',
+    text: 'За счет установки качественного, энергоэффективного оборудования, рассчитанного на долгий срок службы, Вы окупаете затраты уже в первый год установки ИТП ! Каждый последующий период идет чистая экономия.',
   },
   {
     Icon: icons.Coffee,
-    title: 'Sit autem',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta deleniti molestiae reprehenderit doloribus delectus veritatis adipisci cupiditate deserunt rem quia, fugiat alias dignissimos reiciendis, qui eaque.',
+    title: 'Комфорт жильцов',
+    text: 'Наши ИТП комплектуются оборудованием, позволяющим избежать лишнего шума и вибраций. Погодозависимая автоматика дает возможность задавать наиболее комфортные режимы работы, как в зимний, так и в летний периоды.',
   },
   {
     Icon: icons.Lock,
-    title: 'Incidunt',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quidem quod aspernatur iure molestiae minus autem?',
+    title: 'Надёжность',
+    text: 'Оборудование, входящее в состав ИТП, при правильной эксплуатации, рассчитано на долгий срок службы. Жильцы никогда не останутся без тепла или горячей воды.',
   },
   {
     Icon: icons.Handyman,
-    title: 'Incidunt ducimus',
-    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem dicta obcaecati ut vitae quo expedita nulla repellendus quas?',
+    title: 'Удобство обслуживания',
+    text: 'Конструкция ИТП выполняется индивидуально в зависимости от размеров помещения. В тепловом пункте имеются все необходимые порты и задвижки, чтобы обслуживание было легким и удобным.',
   },
 ];
 
 export const ThirdSection: FC = () => (
   <section className={styles.thirdSectionClass}>
     <h3 className={displayTypographyClass.sm}>
-      Lorem ipsum
+      Преимущества
       <span className={styles.thirdSectionSubtitleClass}>
-        dolor sit amet consectetur
+        современного автоматизированного ИТП
       </span>
     </h3>
 
@@ -74,7 +74,7 @@ export const ThirdSection: FC = () => (
       icon={icons.Headset}
       className={styles.thirdSectionButtonClass}
     >
-      Lorem ipsum
+      Заказать консультацию
     </Button>
   </section>
 );
