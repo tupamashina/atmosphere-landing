@@ -4,13 +4,14 @@ import { calc } from '@vanilla-extract/css-utils';
 import { themeVars } from '@/styles/theme.css';
 import { bodyTypographyClass, lhVar } from '@/styles/typography.css';
 
-export const textFiledContainerClass = style({ position: 'relative' });
+export const textFiledContainerClass = style([{ position: 'relative' }]);
 
 export const textFieldInputClass = style([
   bodyTypographyClass.lg,
   {
     width: '100%',
     padding: '1rem',
+    paddingRight: '2.75rem',
     border: 'none',
     borderRadius: '0.25rem',
     boxShadow: `inset 0 0 0 1px ${themeVars.colors.outline}`,
@@ -48,5 +49,23 @@ export const textFieldLabelClass = style([
         color: themeVars.colors.primary,
       },
     },
+  },
+]);
+
+export const textFieldTooltipTriggerClass = style({
+  position: 'absolute',
+  right: '0.75rem',
+  top: 'calc(50% - 0.625rem)',
+  cursor: 'pointer',
+});
+
+export const textFieldTooltipContentClass = style([
+  bodyTypographyClass.sm,
+  {
+    maxWidth: '16rem',
+    padding: '0.25rem 0.5rem',
+    borderRadius: '0.25rem',
+    backgroundColor: themeVars.colors.inverseSurface,
+    color: themeVars.colors.inverseOnSurface,
   },
 ]);
