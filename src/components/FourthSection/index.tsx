@@ -10,20 +10,18 @@ import { TextField } from '../TextField';
 import circleArrows from './circle-arrows.svg';
 import circleCenter from './circle-center.svg';
 import circleShadow from './circle-right-shadow.svg';
-import img from './pto-img-1.png';
+import img from './img.png';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
 
-// 1.63441251
-
 export const FourthSection: FC = () => (
-  <section className={styles.fourthSectionClass}>
+  <section id="calculator" className={styles.fourthSectionClass}>
     <h3
       className={displayTypographyClass.sm}
       style={{ gridColumn: '1 / -1', marginBottom: '2rem' }}
     >
-      Расчёт теплообменника
+      Расчёт экономии
     </h3>
 
     <div
@@ -128,13 +126,16 @@ export const FourthSection: FC = () => (
       <Image
         alt=""
         src={img}
-        width={336}
+        width={318}
+        height={318}
         quality={100}
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
+          borderRadius: '50%',
+          objectFit: 'cover',
         }}
       />
 

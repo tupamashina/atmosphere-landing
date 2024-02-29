@@ -10,9 +10,9 @@ const Page: NextPage = () => (
   <main>
     <FirstSection />
     <SecondSection />
+    <FifthSection />
     <ThirdSection />
     <FourthSection />
-    <FifthSection />
   </main>
 );
 

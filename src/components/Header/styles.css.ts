@@ -4,6 +4,7 @@ import { layoutPaddingInlineVar } from '@/styles/global.css';
 import { darkThemeClass, themeVars } from '@/styles/theme.css';
 import {
   bodyTypographyClass,
+  lhVar,
   titleTypographyClass,
 } from '@/styles/typography.css';
 
@@ -17,15 +18,17 @@ export const headerClass = style([
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
     alignItems: 'center',
-    gap: '6rem',
+    gap: '10rem',
     padding: `1rem ${layoutPaddingInlineVar} 0`,
     color: themeVars.colors.onSurface,
   },
 ]);
 
 export const headerSloganClass = style([
-  bodyTypographyClass.md,
+  bodyTypographyClass.lg,
   {
+    vars: { [lhVar]: '1.25rem' },
+
     justifySelf: 'start',
     padding: '0.625rem 1rem',
     borderRadius: '0.5rem',
