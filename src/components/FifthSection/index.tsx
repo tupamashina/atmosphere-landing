@@ -7,7 +7,7 @@ import * as styles from './styles.css';
 import type { FC } from 'react';
 
 export const FifthSection: FC = () => (
-  <section className={styles.fifthSectionClass}>
+  <section id="scheme" className={styles.fifthSectionClass}>
     <h3 className={displayTypographyClass.sm}>Эксплуатация теплового пункта</h3>
 
     <p className={styles.fifthSectionTextClass}>

@@ -16,18 +16,43 @@ export const SecondSection: FC = () => (
     <div style={{ position: 'relative' }}>
       <Image alt="" src={p1} width={1240} quality={100} />
 
-      <Button
-        variant="filled"
-        icon={icons.Calculator}
-        onClick={() =>
-          document
-            .querySelector('#calculator')
-            ?.scrollIntoView({ behavior: 'smooth' })
-        }
-        style={{ position: 'absolute', left: 430, bottom: 200 }}
+      <div
+        style={{
+          position: 'absolute',
+          left: 300,
+          bottom: 230,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, max-content)',
+          justifyContent: 'center',
+          gap: '1rem',
+        }}
       >
-        Как это поможет сэкономить?
-      </Button>
+        <Button
+          size="sm"
+          variant="filled"
+          icon={icons.ArrowDown}
+          onClick={() =>
+            document
+              .querySelector('#scheme')
+              ?.scrollIntoView({ behavior: 'smooth' })
+          }
+        >
+          Как можно сэкономить?
+        </Button>
+
+        <Button
+          size="sm"
+          variant="filled"
+          icon={icons.Calculator}
+          onClick={() =>
+            document
+              .querySelector('#calculator')
+              ?.scrollIntoView({ behavior: 'smooth' })
+          }
+        >
+          Сколько можно сэкономить?
+        </Button>
+      </div>
     </div>
   </section>
 );
