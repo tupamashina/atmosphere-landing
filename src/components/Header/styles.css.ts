@@ -24,6 +24,8 @@ export const headerClass = style([
   },
 ]);
 
+// 203, 203, 118
+
 export const headerSloganClass = style([
   bodyTypographyClass.lg,
   {
@@ -32,7 +34,7 @@ export const headerSloganClass = style([
     justifySelf: 'start',
     padding: '0.625rem 1rem',
     borderRadius: '0.5rem',
-    backgroundColor: `rgba(${themeVars.colors.rgbValues.onSurface}, 0.16)`,
+    backgroundColor: `rgba(${themeVars.colors.rgbValues.primary}, 0.24)`,
   },
 ]);
 

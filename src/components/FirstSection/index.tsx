@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FC, useRef } from 'react';
 
 import { icons } from '@/icons';
+import { themeVars } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
 import { IconButton } from '../IconButton';
 import bg from './bg.jpg';
@@ -43,8 +44,10 @@ export const FirstSection: FC = () => {
 
       <p className={styles.firstSectionSubtitleClass}>
         Потребление тепловых энергоресурсов 1 корпусом промышленного предприятия
-        исчисляется миллионами миллиардов. Мы утверждаем, что эту сумму можно
-        сократить на 27%
+        исчисляется миллионами миллиардов.{' '}
+        <span style={{ color: themeVars.colors.primary }}>
+          Мы утверждаем, что эту сумму можно сократить на 27%
+        </span>
       </p>
 
       <ul className={styles.firstSectionListClass}>

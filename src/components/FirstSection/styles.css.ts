@@ -22,7 +22,7 @@ export const firstSectionClass = style([
 export const firstSectionBgImgClass = style({
   zIndex: -1,
   objectFit: 'cover',
-  filter: 'brightness(30%)',
+  filter: 'brightness(27.5%)',
 });
 
 export const firstSectionSubtitleClass = style([

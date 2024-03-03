@@ -1,5 +1,7 @@
+import { clsx } from 'clsx';
+
 import { icons } from '@/icons';
-import { themeVars } from '@/styles/theme.css';
+import { darkThemeClass, themeVars } from '@/styles/theme.css';
 import {
   bodyTypographyClass,
   displayTypographyClass,
@@ -72,7 +74,7 @@ export const ThirdSection: FC = () => (
       size="lg"
       variant="filled"
       icon={icons.Headset}
-      className={styles.thirdSectionButtonClass}
+      className={clsx(darkThemeClass, styles.thirdSectionButtonClass)}
     >
       Заказать консультацию
     </Button>

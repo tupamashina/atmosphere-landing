@@ -9,7 +9,7 @@ export const footerClass = style([
   {
     display: 'grid',
     gridTemplateColumns: 'max-content 1fr max-content',
-    gap: '8rem',
+    gap: '4rem',
     padding: `2rem ${layoutPaddingInlineVar}`,
     backgroundColor: themeVars.colors.surfaceContainer,
     color: themeVars.colors.onSurface,

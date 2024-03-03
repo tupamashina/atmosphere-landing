@@ -14,6 +14,7 @@ import img from './img.png';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
+import { darkThemeClass } from '@/styles/theme.css';
 
 export const FourthSection: FC = () => (
   <section id="calculator" className={styles.fourthSectionClass}>
@@ -204,6 +205,7 @@ export const FourthSection: FC = () => (
 
       <Button
         variant="filled"
+        className={darkThemeClass}
         style={{
           gridColumn: '1 / -1',
           display: 'flex',

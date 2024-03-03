@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { icons } from '@/icons';
+import { darkThemeClass } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
 import { Button } from '../Button';
 import * as styles from './styles.css';
@@ -36,6 +37,7 @@ export const SecondSection: FC = () => (
               .querySelector('#scheme')
               ?.scrollIntoView({ behavior: 'smooth' })
           }
+          className={darkThemeClass}
         >
           Как можно сэкономить?
         </Button>
@@ -49,6 +51,7 @@ export const SecondSection: FC = () => (
               .querySelector('#calculator')
               ?.scrollIntoView({ behavior: 'smooth' })
           }
+          className={darkThemeClass}
         >
           Сколько можно сэкономить?
         </Button>

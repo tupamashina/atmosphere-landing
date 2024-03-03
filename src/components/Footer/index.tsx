@@ -18,8 +18,8 @@ export const Footer: FC = () => (
 
     <div style={{ justifySelf: 'center' }}>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eveniet
-        ipsa dolorum, ut sit facere!
+        Российский производитель тепловых пунктов, кожухотрубных, пластинчатых
+        теплообменников и другого теплообменного оборудования с 2006 года.
       </p>
 
       <div style={{ marginTop: '0.5rem' }}>
