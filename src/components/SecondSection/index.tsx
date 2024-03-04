@@ -4,8 +4,8 @@ import { icons } from '@/icons';
 import { darkThemeClass } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
 import { Button } from '../Button';
+import p1 from './p2.png';
 import * as styles from './styles.css';
-import p1 from './р1.png';
 
 import type { FC } from 'react';
 
