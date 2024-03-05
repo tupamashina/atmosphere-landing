@@ -20,8 +20,8 @@ export const SecondSection: FC = () => (
       <div
         style={{
           position: 'absolute',
-          left: 320,
-          bottom: 230,
+          left: 300,
+          bottom: 220,
           display: 'grid',
           gridTemplateColumns: 'repeat(2, max-content)',
           justifyContent: 'center',
