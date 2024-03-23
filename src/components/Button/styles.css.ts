@@ -1,4 +1,9 @@
-import { createVar, style, styleVariants } from '@vanilla-extract/css';
+import {
+  createVar,
+  keyframes,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
 import { themeVars } from '@/styles/theme.css';
@@ -17,6 +22,7 @@ export const buttonClass = style({
 
   position: 'relative',
   display: 'flex',
+  justifyContent: 'center',
   padding: '0.75rem 1.5rem',
 
   border: 'none',
@@ -73,7 +79,7 @@ export const buttonVariantClass = styleVariants({
 
   text: {
     vars: { [childrenColorVar]: themeVars.colors.primary },
-    padding: '0.75rem 1rem',
+    padding: '0.625rem 1.25rem',
     ':disabled': { vars: { [stateLayerOpacityVar]: '0' } },
   },
 
@@ -151,3 +157,35 @@ export const buttonIconClass = style([
 ]);
 
 export const buttonTextClass = style([baseChildrenClass]);
+
+export const buttonSpinnerClass = style([
+  baseChildrenClass,
+  {
+    position: 'relative',
+    width: lhVar,
+    height: lhVar,
+  },
+]);
+
+const rotateKeyframes = keyframes({
+  from: { transform: 'rotate(0turn)' },
+  to: { transform: 'rotate(1turn)' },
+});
+
+export const buttonSpinnerPartClass = style({
+  position: 'absolute',
+  top: '0.125rem',
+  left: '0.125rem',
+  right: '0.125rem',
+  bottom: '0.125rem',
+
+  borderRadius: '50%',
+  border: '2px solid transparent',
+  borderTopColor: 'currentColor',
+  animation: `${rotateKeyframes} 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite`,
+
+  selectors: {
+    '&:nth-child(1)': { animationDelay: '300ms' },
+    '&:nth-child(2)': { animationDelay: '150ms' },
+  },
+});

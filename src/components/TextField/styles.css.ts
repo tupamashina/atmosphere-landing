@@ -11,7 +11,6 @@ export const textFieldInputClass = style([
   {
     width: '100%',
     padding: '1rem',
-    paddingRight: '2.75rem',
     border: 'none',
     borderRadius: '0.25rem',
     boxShadow: `inset 0 0 0 1px ${themeVars.colors.outline}`,
