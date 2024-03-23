@@ -42,7 +42,7 @@ const handler: NextApiHandler = async ({ body }, res) => {
 
     await transporter.sendMail({
       from: process.env.GMAIL_USER,
-      to: 'trubatvoia@gmail.com',
+      to: 'sanosyan@atmosfera-energy.ru',
       subject: '🚨🚨🚨НОВАЯ ЗАЯВКА🚨🚨🚨',
       html: [
         `<p>Телефон: ${data.phone}</p>`,
