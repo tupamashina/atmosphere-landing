@@ -1,4 +1,8 @@
+// @ts-check
+
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+
+const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,4 +10,4 @@ const nextConfig = {
   i18n: { locales: ['ru-RU'], defaultLocale: 'ru-RU' },
 };
 
-export default createVanillaExtractPlugin()(nextConfig);
+export default withVanillaExtract(nextConfig);

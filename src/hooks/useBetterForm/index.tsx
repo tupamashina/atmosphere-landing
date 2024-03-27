@@ -1,8 +1,13 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/unbound-method */
+
 import { deepStrictEqual } from 'assert';
 import { useMemo } from 'react';
 import {
-  FieldError,
-  FieldErrors,
+  type FieldError,
+  type FieldErrors,
   get,
   useForm as useReactHookForm,
 } from 'react-hook-form';
@@ -37,9 +42,9 @@ export const pick = <O extends object, K extends keyof O>(
 ) => {
   const newObject = {} as Pick<O, K>;
 
-  keys.forEach((key) => {
+  for (const key of keys) {
     newObject[key] = object[key];
-  });
+  }
 
   return newObject;
 };
@@ -84,9 +89,7 @@ export const useBetterForm = <V extends FormValues>({
                 const { errors } = await control._executeSchema([path]);
                 const newError = getError(errors, path);
 
-                if (!newError) {
-                  clearErrors(path);
-                } else {
+                if (newError) {
                   const [prevErrorPick, newErrorPick] = [
                     prevError,
                     newError,
@@ -94,6 +97,8 @@ export const useBetterForm = <V extends FormValues>({
 
                   if (!deepStrictEqualSafe(prevErrorPick, newErrorPick))
                     setError(path, newError);
+                } else {
+                  clearErrors(path);
                 }
               }
             },

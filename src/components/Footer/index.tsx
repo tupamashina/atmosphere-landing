@@ -1,5 +1,4 @@
-import { icons } from '@/icons';
-import { bodyTypographyClass } from '@/styles/typography.css';
+import { Icons } from '@/icons';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
@@ -7,47 +6,33 @@ import type { FC } from 'react';
 export const Footer: FC = () => (
   <footer className={styles.footerClass}>
     <div>
-      <icons.Logo
-        aria-hidden
-        width="17rem"
-        height="2.5rem"
-        style={{ marginBottom: '1rem' }}
-      />
+      <Icons.Logo aria-hidden width="17rem" height="2.5rem" />
       &copy; ООО «АТМОСФЕРА» {new Date().getFullYear()}
     </div>
 
-    <div style={{ justifySelf: 'center' }}>
+    <div>
       <p>
-        Российский производитель тепловых пунктов, кожухотрубных, пластинчатых
-        теплообменников и другого теплообменного оборудования с 2006 года.
+        С 2010 года помогли сэкономить более 2 миллиардов рублей, и эта цифра
+        продолжает расти
       </p>
 
-      <div style={{ marginTop: '0.5rem' }}>
-        <a href="#" style={{ color: 'inherit' }}>
-          Политика конфиденциальности
-        </a>
-
-        <a href="#" style={{ color: 'inherit', marginLeft: '1rem' }}>
-          Публичная оферта
-        </a>
+      <div>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a href="#">Политика конфиденциальности</a>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a href="#">Публичная оферта</a>
       </div>
     </div>
 
     <div>
-      <span style={{ display: 'flex', alignItems: 'center' }}>
-        <icons.Phone size="1.25rem" style={{ marginRight: '0.375rem' }} />
-        <a href="tel:84956929595" style={{ color: 'inherit' }}>
-          8 4956 92-95-95
-        </a>
+      <span>
+        <Icons.Phone size="1.25rem" />
+        <a href="tel:84956929595">8 4956 92-95-95</a>
       </span>
 
-      <span
-        style={{ display: 'flex', alignItems: 'center', marginTop: '0.25rem' }}
-      >
-        <icons.Envelope size="1.25rem" style={{ marginRight: '0.375rem' }} />
-        <a href="mailto:duma@gov.ru" style={{ color: 'inherit' }}>
-          duma@gov.ru
-        </a>
+      <span>
+        <Icons.Envelope size="1.25rem" />
+        <a href="mailto:duma@gov.ru">duma@gov.ru</a>
       </span>
     </div>
   </footer>

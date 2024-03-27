@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import { maskitoPhoneOptionsGenerator } from '@maskito/phone';
 import {
   DialogClose,
@@ -11,10 +14,9 @@ import {
 } from '@radix-ui/react-dialog';
 import { parsePhoneNumberWithError } from 'libphonenumber-js';
 import metadata from 'libphonenumber-js/metadata.max.json';
-import { FC, useRef, useState, useSyncExternalStore } from 'react';
-import { SubmitHandler } from 'react-hook-form';
+import { type FC, useRef, useState, useSyncExternalStore } from 'react';
 import {
-  Infer,
+  type Infer,
   empty,
   nonempty,
   object,
@@ -26,15 +28,18 @@ import {
 import isEmail from 'validator/lib/isEmail';
 
 import { useBetterForm } from '@/hooks/useBetterForm';
-import { icons } from '@/icons';
+import { Icons } from '@/icons';
 import { themeVars } from '@/styles/theme.css';
 import { headlineTypographyClass } from '@/styles/typography.css';
-import { Button } from '../Button';
-import { IconButton } from '../IconButton';
-import { TextField } from '../_/TextField';
-import { Transition } from '../_/Transition';
+import { TextField } from '../TextField';
+import { Transition } from '../Transition';
+import { Button } from '../buttons/Button';
+import { IconButton } from '../buttons/IconButton';
 import * as styles from './styles.css';
 
+import type { SubmitHandler } from 'react-hook-form';
+
+// eslint-disable-next-line unicorn/consistent-function-scoping
 const noopSubscribe = () => () => {};
 
 const phoneFieldMask = maskitoPhoneOptionsGenerator({
@@ -113,7 +118,7 @@ export const Header: FC = () => {
 
       <h1 className={styles.headerTitleClass}>
         Атмосфера - энергия эффективности
-        <icons.Logo
+        <Icons.Logo
           aria-hidden
           width="20.5rem"
           height="3rem"
@@ -137,7 +142,7 @@ export const Header: FC = () => {
             <IconButton
               title="Оставить заявку"
               variant="filled"
-              icon={icons.PhoneIncoming}
+              icon={Icons.PhoneIncoming}
             />
           </DialogTrigger>
 
@@ -181,6 +186,7 @@ export const Header: FC = () => {
                         </DialogClose>
                       </>
                     : <form
+                        // eslint-disable-next-line @typescript-eslint/no-misused-promises
                         onSubmit={handleSubmit(submitHandler)}
                         className={styles.headerDialogFormClass}
                       >
@@ -189,7 +195,7 @@ export const Header: FC = () => {
                           type="text"
                           autoCapitalize="words"
                           autoComplete="name"
-                          leadingIcon={icons.User}
+                          leadingIcon={Icons.User}
                           {...register('name')}
                         />
 
@@ -200,7 +206,7 @@ export const Header: FC = () => {
                           inputMode="tel"
                           autoComplete="tel"
                           error={!!errors.phone}
-                          leadingIcon={icons.Phone}
+                          leadingIcon={Icons.Phone}
                           maskOptions={phoneFieldMask}
                           {...register('phone')}
                         />
@@ -211,13 +217,13 @@ export const Header: FC = () => {
                           inputMode="email"
                           autoComplete="email"
                           error={!!errors.email}
-                          leadingIcon={icons.Envelope}
+                          leadingIcon={Icons.Envelope}
                           {...register('email')}
                         />
 
                         {!!errors.root && (
                           <p className={styles.headerDialogErrorMessageClass}>
-                            <icons.WarningCircleFill size="1.25rem" />
+                            <Icons.WarningCircleFill size="1.25rem" />
                             Произошла ошибка. Пожалуйста, попробуйте ещё раз
                           </p>
                         )}

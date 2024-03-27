@@ -1,8 +1,9 @@
 import { createGlobalTheme, createTheme } from '@vanilla-extract/css';
 
-//* ================================== Themes ==================================
+const lightThemeVars = createGlobalTheme(':root', {
+  lh: '1.15em',
+  layoutWidth: '77.5rem',
 
-const _themeVars = createGlobalTheme(':root', {
   colors: {
     primary: '#006A6A',
     surfaceTint: '#006A6A',
@@ -53,62 +54,12 @@ const _themeVars = createGlobalTheme(':root', {
     surfaceContainer: '#E9EFEE',
     surfaceContainerHigh: '#E3E9E9',
     surfaceContainerHighest: '#DDE4E3',
-
-    rgbValues: {
-      primary: '0, 106, 106',
-      surfaceTint: '0, 106, 106',
-      onPrimary: '255, 255, 255',
-      primaryContainer: '156, 241, 240',
-      onPrimaryContainer: '0, 32, 32',
-      secondary: '74, 99, 99',
-      onSecondary: '255, 255, 255',
-      secondaryContainer: '204, 232, 231',
-      onSecondaryContainer: '5, 31, 31',
-      tertiary: '75, 96, 124',
-      onTertiary: '255, 255, 255',
-      tertiaryContainer: '211, 228, 255',
-      onTertiaryContainer: '4, 28, 53',
-      error: '186, 26, 26',
-      onError: '255, 255, 255',
-      errorContainer: '255, 218, 214',
-      onErrorContainer: '65, 0, 2',
-      background: '244, 251, 250',
-      onBackground: '22, 29, 29',
-      surface: '244, 251, 250',
-      onSurface: '22, 29, 29',
-      surfaceVariant: '218, 229, 228',
-      onSurfaceVariant: '63, 73, 72',
-      outline: '111, 121, 121',
-      outlineVariant: '190, 201, 200',
-      shadow: '0, 0, 0',
-      scrim: '0, 0, 0',
-      inverseSurface: '43, 50, 49',
-      inverseOnSurface: '236, 242, 241',
-      inversePrimary: '128, 213, 212',
-      primaryFixed: '156, 241, 240',
-      onPrimaryFixed: '0, 32, 32',
-      primaryFixedDim: '128, 213, 212',
-      onPrimaryFixedVariant: '0, 79, 79',
-      secondaryFixed: '204, 232, 231',
-      onSecondaryFixed: '5, 31, 31',
-      secondaryFixedDim: '176, 204, 203',
-      onSecondaryFixedVariant: '50, 75, 75',
-      tertiaryFixed: '211, 228, 255',
-      onTertiaryFixed: '4, 28, 53',
-      tertiaryFixedDim: '179, 200, 232',
-      onTertiaryFixedVariant: '51, 72, 99',
-      surfaceDim: '213, 219, 218',
-      surfaceBright: '244, 251, 250',
-      surfaceContainerLowest: '255, 255, 255',
-      surfaceContainerLow: '239, 245, 244',
-      surfaceContainer: '233, 239, 238',
-      surfaceContainerHigh: '227, 233, 233',
-      surfaceContainerHighest: '221, 228, 227',
-    },
   },
 });
 
-const darkThemeClass = createTheme(_themeVars, {
+export const darkThemeClass = createTheme(lightThemeVars, {
+  ...lightThemeVars,
+
   colors: {
     primary: '#80D5D4',
     surfaceTint: '#80D5D4',
@@ -159,89 +110,42 @@ const darkThemeClass = createTheme(_themeVars, {
     surfaceContainer: '#1A2121',
     surfaceContainerHigh: '#252B2B',
     surfaceContainerHighest: '#2F3636',
-
-    rgbValues: {
-      primary: '128, 213, 212',
-      surfaceTint: '128, 213, 212',
-      onPrimary: '0, 55, 55',
-      primaryContainer: '0, 79, 79',
-      onPrimaryContainer: '156, 241, 240',
-      secondary: '176, 204, 203',
-      onSecondary: '27, 53, 52',
-      secondaryContainer: '50, 75, 75',
-      onSecondaryContainer: '204, 232, 231',
-      tertiary: '179, 200, 232',
-      onTertiary: '28, 49, 75',
-      tertiaryContainer: '51, 72, 99',
-      onTertiaryContainer: '211, 228, 255',
-      error: '255, 180, 171',
-      onError: '105, 0, 5',
-      errorContainer: '147, 0, 10',
-      onErrorContainer: '255, 218, 214',
-      background: '14, 21, 20',
-      onBackground: '221, 228, 227',
-      surface: '14, 21, 20',
-      onSurface: '221, 228, 227',
-      surfaceVariant: '63, 73, 72',
-      onSurfaceVariant: '190, 201, 200',
-      outline: '136, 147, 146',
-      outlineVariant: '63, 73, 72',
-      shadow: '0, 0, 0',
-      scrim: '0, 0, 0',
-      inverseSurface: '221, 228, 227',
-      inverseOnSurface: '43, 50, 49',
-      inversePrimary: '0, 106, 106',
-      primaryFixed: '156, 241, 240',
-      onPrimaryFixed: '0, 32, 32',
-      primaryFixedDim: '128, 213, 212',
-      onPrimaryFixedVariant: '0, 79, 79',
-      secondaryFixed: '204, 232, 231',
-      onSecondaryFixed: '5, 31, 31',
-      secondaryFixedDim: '176, 204, 203',
-      onSecondaryFixedVariant: '50, 75, 75',
-      tertiaryFixed: '211, 228, 255',
-      onTertiaryFixed: '4, 28, 53',
-      tertiaryFixedDim: '179, 200, 232',
-      onTertiaryFixedVariant: '51, 72, 99',
-      surfaceDim: '14, 21, 20',
-      surfaceBright: '52, 58, 58',
-      surfaceContainerLowest: '9, 15, 15',
-      surfaceContainerLow: '22, 29, 29',
-      surfaceContainer: '26, 33, 33',
-      surfaceContainerHigh: '37, 43, 43',
-      surfaceContainerHighest: '47, 54, 54',
-    },
   },
 });
 
-//* =============================== Breakpoints ================================
+// //* =============================== Breakpoints ================================
 
-const breakpointValues = { xl: 1440, lg: 1240, md: 905, sm: 600 } as const;
+const breakpointValues = { sm: 600, md: 905, lg: 1240, xl: 1440 } as const;
 type BreakpointValues = typeof breakpointValues;
 
-type Breakpoints = {
+type MediaMinWidth = {
   [K in keyof BreakpointValues]: `(min-width: ${BreakpointValues[K]}px)`;
 };
 
-const breakpoints = Object.fromEntries(
+const mediaMinWidth = Object.fromEntries(
   Object.entries(breakpointValues).map(([key, value]) => [
     key,
     `(min-width: ${value}px)`,
   ]),
-) as Breakpoints;
+) as MediaMinWidth;
 
-type ReversedBreakpoints = {
-  [K in keyof Breakpoints]: `not all and ${Breakpoints[K]}`;
+type MediaMaxWidth = {
+  [K in keyof MediaMinWidth]: `not all and ${MediaMinWidth[K]}`;
 };
 
-const reversedBreakpoints = Object.fromEntries(
-  Object.entries(breakpoints).map(([key, mediaQuery]) => [
+const mediaMaxWidth = Object.fromEntries(
+  Object.entries(mediaMinWidth).map(([key, query]) => [
     key,
-    `not all and ${mediaQuery}`,
+    `not all and ${query}`,
   ]),
-) as ReversedBreakpoints;
+) as MediaMaxWidth;
 
-//* ================================= Exports ==================================
+export const themeVars = {
+  ...lightThemeVars,
 
-export { darkThemeClass };
-export const themeVars = { ..._themeVars, breakpoints, reversedBreakpoints };
+  media: {
+    minWidth: mediaMinWidth,
+    maxWidth: mediaMaxWidth,
+    prefersReducedMotion: '(prefers-reduced-motion: reduce)',
+  },
+};

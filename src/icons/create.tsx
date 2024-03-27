@@ -1,30 +1,30 @@
-import { clsx } from 'clsx/lite';
-import { CSSProperties, SVGAttributes, forwardRef } from 'react';
+import { clsx } from 'clsx';
+import {
+  forwardRef,
+  type CSSProperties,
+  type ReactNode,
+  type SVGAttributes,
+} from 'react';
 
-import type { Except } from 'type-fest';
-
-type SVGProps = SVGAttributes<SVGSVGElement>;
+type SVGAttrs = SVGAttributes<SVGSVGElement>;
 
 interface IconStylingProps
-  extends Pick<CSSProperties, Extract<keyof CSSProperties, keyof SVGProps>> {
+  extends Pick<CSSProperties, Extract<keyof SVGAttrs, keyof CSSProperties>> {
   size?: CSSProperties['width'] & CSSProperties['height'];
 }
 
 export interface IconProps
   extends IconStylingProps,
-    Omit<SVGProps, keyof IconStylingProps> {
+    Omit<SVGAttrs, 'xmlns' | 'children' | keyof IconStylingProps> {
   title?: string;
 }
 
-export function createIconComponent(
-  defaultProps: Except<IconProps, 'children'>,
-  children: IconProps['children'],
-) {
+export function createIcon(defaultProps: IconProps, children: ReactNode) {
   // eslint-disable-next-line react/display-name
   return forwardRef<SVGSVGElement, IconProps>((props, ref) => {
     const {
       title,
-      size = '1rem',
+      size = '1.5rem',
 
       mask,
       fillRule,
@@ -35,9 +35,9 @@ export function createIconComponent(
       ...mergedProps
     } = { ...defaultProps, ...props };
 
+    mergedProps.display ??= 'block';
     mergedProps.width ??= size;
     mergedProps.height ??= size;
-    mergedProps.display ??= 'block';
 
     mergedProps.strokeWidth ??= 0;
     mergedProps.color ??= 'inherit';
@@ -50,19 +50,19 @@ export function createIconComponent(
     return (
       <svg
         ref={ref}
-        fillRule={fillRule as SVGProps['fillRule']}
-        mask={typeof mask === 'number' ? `${mask}px` : mask}
-        strokeLinecap={strokeLinecap as SVGProps['strokeLinecap']}
-        strokeLinejoin={strokeLinejoin as SVGProps['strokeLinejoin']}
-        alignmentBaseline={alignmentBaseline as SVGProps['alignmentBaseline']}
-        {...mergedProps}
         xmlns="http://www.w3.org/2000/svg"
+        mask={typeof mask === 'number' ? `${mask}px` : mask}
+        fillRule={fillRule as SVGAttrs['fillRule']}
+        strokeLinecap={strokeLinecap as SVGAttrs['strokeLinecap']}
+        strokeLinejoin={strokeLinejoin as SVGAttrs['strokeLinejoin']}
+        alignmentBaseline={alignmentBaseline as SVGAttrs['alignmentBaseline']}
+        {...mergedProps}
       >
-        {!!title && <title>{title}</title>}
         {children}
+        {!!title && <title>{title}</title>}
       </svg>
     );
   });
 }
 
-export type Icon = ReturnType<typeof createIconComponent>;
+export type Icon = ReturnType<typeof createIcon>;

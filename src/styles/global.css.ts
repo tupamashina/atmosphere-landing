@@ -3,42 +3,55 @@ import { calc } from '@vanilla-extract/css-utils';
 
 import { themeVars } from './theme.css';
 
+globalStyle(':root', { fontSize: 16, fontFeatureSettings: '"ss01"' });
 globalStyle('*, *::before, *::after', { margin: 0, padding: 0 });
 
-globalStyle(':root', {
-  fontSize: 16,
+globalStyle('*', { lineHeight: `${themeVars.lh} !important` });
+globalStyle('sub, sup', { vars: { [themeVars.lh]: '0' } });
 
-  fontFamily: [
-    'system-ui',
-    '-apple-system',
-    'BlinkMacSystemFont',
-    "'Segoe UI'",
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    "'Open Sans'",
-    "'Helvetica Neue'",
-    'sans-serif',
-  ].join(', '),
-});
-
+export const layoutPaddingBlockVar = createVar();
 export const layoutPaddingInlineVar = createVar();
 
 globalStyle('body', {
-  vars: { [layoutPaddingInlineVar]: '1rem' },
+  vars: { [layoutPaddingBlockVar]: '0', [layoutPaddingInlineVar]: '1rem' },
 
+  display: 'flex',
+  flexDirection: 'column',
+
+  minHeight: '100vh',
   backgroundColor: themeVars.colors.surface,
 
   '@media': {
-    [themeVars.breakpoints.md]: {
+    [themeVars.media.minWidth.md]: {
       vars: {
-        [layoutPaddingInlineVar]: `max(1rem, ${calc('100vw')
-          .subtract('77.5rem')
-          .divide(2)})`,
+        [layoutPaddingInlineVar]: `max(${calc('100vw')
+          .subtract(themeVars.layoutWidth)
+          .divide(2)
+          .toString()}, 2rem)`,
       },
     },
   },
 });
 
-globalStyle('main', { padding: `0 ${layoutPaddingInlineVar}` });
+globalStyle('#__next', { display: 'contents' });
+
+globalStyle('main', {
+  flexGrow: 1,
+  padding: `${layoutPaddingBlockVar} ${layoutPaddingInlineVar}`,
+});
+
+globalStyle('section', {
+  paddingBlock: '2.5rem',
+
+  color: themeVars.colors.onSurface,
+  textAlign: 'center',
+});
+
+// https://nextjs.org/docs/pages/api-reference/components/image#known-browser-bugs
+globalStyle('img[loading="lazy"]', {
+  '@supports': {
+    '(font: -apple-system-body) and (-webkit-appearance: none)': {
+      clipPath: 'inset(0.6px)',
+    },
+  },
+});

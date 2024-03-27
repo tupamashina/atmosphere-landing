@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
 import { themeVars } from '@/styles/theme.css';
-import { bodyTypographyClass, lhVar } from '@/styles/typography.css';
+import { bodyTypographyClass } from '@/styles/typography.css';
 
 export const selectContainerClass = style({ position: 'relative' });
 
@@ -36,7 +36,7 @@ export const selectLabelClass = style([
   {
     position: 'absolute',
     left: '0.75rem',
-    top: calc(lhVar).divide(2).negate().toString(),
+    top: calc.divide(themeVars.lh, -2),
     padding: '0 0.25rem',
     backgroundColor: themeVars.colors.surface,
     color: themeVars.colors.onSurfaceVariant,

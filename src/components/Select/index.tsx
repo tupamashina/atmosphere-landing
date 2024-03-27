@@ -1,19 +1,18 @@
-import { CSSProperties, FC, useId } from 'react';
+import { useId, type FC } from 'react';
 
-import { icons } from '@/icons';
+import { Icons } from '@/icons';
 import * as styles from './styles.css';
 
 interface Props {
   label: string;
   options: string[];
-  style?: CSSProperties;
 }
 
-export const Select: FC<Props> = ({ label, options, style }) => {
+export const Select: FC<Props> = ({ label, options }) => {
   const selectId = useId();
 
   return (
-    <div style={style} className={styles.selectContainerClass}>
+    <div className={styles.selectContainerClass}>
       <select id={selectId} className={styles.selectClass}>
         {options.map((option) => (
           <option key={option} value={option}>
@@ -26,7 +25,7 @@ export const Select: FC<Props> = ({ label, options, style }) => {
         {label}
       </label>
 
-      <icons.ChevronDown
+      <Icons.ChevronDown
         aria-hidden
         size="0.875rem"
         className={styles.selectIndicatorClass}

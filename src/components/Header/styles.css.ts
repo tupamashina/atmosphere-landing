@@ -9,14 +9,12 @@ import { layoutPaddingInlineVar } from '@/styles/global.css';
 import { darkThemeClass, themeVars } from '@/styles/theme.css';
 import {
   bodyTypographyClass,
-  headlineTypographyClass,
-  lhVar,
   titleTypographyClass,
 } from '@/styles/typography.css';
 import {
   textFieldLabelBackgroundColorVar,
   textFieldLabelClass,
-} from '../_/TextField/styles.css';
+} from '../TextField/styles.css';
 
 export const headerClass = style([
   darkThemeClass,
@@ -31,28 +29,58 @@ export const headerClass = style([
     gap: '10rem',
     padding: `1rem ${layoutPaddingInlineVar} 0`,
     color: themeVars.colors.onSurface,
+
+    '@media': {
+      [themeVars.media.maxWidth.lg]: {
+        gridTemplateColumns: '2.5rem 1fr 2.5rem',
+        gap: 0,
+        paddingTop: '1.5rem',
+      },
+    },
   },
 ]);
 
 export const headerSloganClass = style([
   bodyTypographyClass.lg,
   {
-    vars: { [lhVar]: '1.25rem' },
+    vars: { [themeVars.lh]: '1.25rem' },
 
     justifySelf: 'start',
     padding: '0.625rem 1rem',
     borderRadius: '0.5rem',
-    backgroundColor: `rgba(${themeVars.colors.rgbValues.primary}, 0.24)`,
+    backgroundColor: `rgba(128, 213, 212, 0.24)`,
+
+    '@media': { [themeVars.media.maxWidth.lg]: { display: 'none' } },
   },
 ]);
 
-export const headerTitleClass = style({ justifySelf: 'center', fontSize: 0 });
+export const headerTitleClass = style({
+  vars: { [themeVars.lh]: '0' },
+
+  justifySelf: 'center',
+  fontSize: 0,
+
+  '@media': { [themeVars.media.maxWidth.lg]: { gridColumn: 2 } },
+});
+
+globalStyle(`${headerTitleClass} > svg`, {
+  '@media': {
+    [themeVars.media.maxWidth.lg]: { width: '13.625rem', height: '2rem' },
+  },
+});
 
 export const headerContactInfoClass = style({
   justifySelf: 'end',
   display: 'grid',
   gridTemplateColumns: 'repeat(2, max-content)',
   gap: '1rem',
+  alignItems: 'center',
+
+  '@media': { [themeVars.media.maxWidth.lg]: { display: 'block' } },
+});
+
+globalStyle(`${headerContactInfoClass} > div:first-child`, {
+  '@media': { [themeVars.media.maxWidth.lg]: { display: 'none' } },
 });
 
 const baseContactLinkClass = style({
@@ -84,17 +112,15 @@ const overlayClosingKeyframes = keyframes({
 
 export const headerDialogOverlayClass = style({
   position: 'fixed',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
+  inset: 0,
   zIndex: 1,
 
   display: 'grid',
   placeItems: 'center',
   overflowY: 'auto',
 
-  backgroundColor: `rgba(${themeVars.colors.rgbValues.scrim}, 0.32)`,
+  padding: '0 1rem',
+  backgroundColor: `rgba(0, 0, 0, 0.32)`,
 
   selectors: {
     '&[data-state="open"]': {
@@ -107,6 +133,7 @@ export const headerDialogOverlayClass = style({
     },
   },
 });
+
 export const headerDialogContentClass = style({
   display: 'grid',
   gap: '1.25rem',
@@ -117,6 +144,10 @@ export const headerDialogContentClass = style({
 
   borderRadius: '1.5rem',
   backgroundColor: themeVars.colors.surfaceContainerHigh,
+
+  '@media': {
+    [themeVars.media.maxWidth.lg]: { padding: '1rem 1.25rem 1.25rem' },
+  },
 });
 
 export const headerDialogFormClass = style({ display: 'contents' });

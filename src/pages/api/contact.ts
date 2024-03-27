@@ -11,11 +11,13 @@ import {
 } from 'superstruct';
 import { isEmail } from 'validator';
 
+import { serverEnv } from '@/env/server';
+
 import type { NextApiHandler } from 'next';
 
 const transporter = createTransport({
   service: 'gmail',
-  auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_PASS },
+  auth: { user: serverEnv.GMAIL_USER, pass: serverEnv.GMAIL_PASS },
 });
 
 const struct = object({
@@ -41,9 +43,10 @@ const handler: NextApiHandler = async ({ body }, res) => {
     if (!data) return res.status(400).end();
 
     await transporter.sendMail({
-      from: process.env.GMAIL_USER,
+      from: serverEnv.GMAIL_USER,
       to: 'sanosyan@atmosfera-energy.ru',
       subject: '🚨🚨🚨НОВАЯ ЗАЯВКА🚨🚨🚨',
+
       html: [
         `<p>Телефон: ${data.phone}</p>`,
         `<p>Имя: ${data.name || 'не указано'}</p>`,

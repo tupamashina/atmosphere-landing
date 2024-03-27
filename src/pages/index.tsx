@@ -1,19 +1,19 @@
-import { FifthSection } from '@/components/FifthSection';
-import { FirstSection } from '@/components/FirstSection';
-import { FourthSection } from '@/components/FourthSection';
-import { SecondSection } from '@/components/SecondSection';
-import { ThirdSection } from '@/components/ThirdSection';
+import { FifthSection } from '@/components/sections/Fifth';
+import { FirstSection } from '@/components/sections/First';
+import { FourthSection } from '@/components/sections/Fourth';
+import { SecondSection } from '@/components/sections/Second';
+import { ThirdSection } from '@/components/sections/Third';
 
 import type { NextPage } from 'next';
 
-const Page: NextPage = () => (
+const IndexPage: NextPage = () => (
   <main>
     <FirstSection />
     <SecondSection />
-    <FifthSection />
     <ThirdSection />
     <FourthSection />
+    <FifthSection />
   </main>
 );
 
-export default Page;
+export default IndexPage;
