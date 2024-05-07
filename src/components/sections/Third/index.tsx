@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useLayoutEffect, useRef, useState, type FC } from 'react';
 
-import { darkThemeClass, themeVars } from '@/styles/theme.css';
+import { themeVars } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
 import scheme from './scheme.webp';
 import * as styles from './styles.css';
@@ -18,6 +18,7 @@ export const ThirdSection: FC = () => {
     );
 
     observer.observe(imgRef.current);
+    // eslint-disable-next-line consistent-return
     return () => observer.disconnect();
   }, []);
 
