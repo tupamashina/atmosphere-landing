@@ -117,6 +117,7 @@ module.exports = {
     'unicorn/no-null': 'off',
     'unicorn/prefer-node-protocol': 'off',
     'unicorn/prevent-abbreviations': 'off',
+    'unicorn/switch-case-braces': ['error', 'avoid'],
 
     'unicorn/filename-case': [
       'error',
