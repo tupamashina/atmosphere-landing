@@ -1,85 +1,141 @@
 import { globalStyle, style } from '@vanilla-extract/css';
 
+import { buttonStateLayerColorVar } from '@/components/buttons/styles.css';
 import { darkThemeClass, themeVars } from '@/styles/theme.css';
-import { headlineTypographyClass } from '@/styles/typography.css';
+import { bodyTypographyClass } from '@/styles/typography.css';
 
 export const fifthSectionFormClass = style({
   display: 'grid',
-  gap: '1.25rem',
-
+  gap: '1.5rem',
   marginTop: '2rem',
 
   '@media': {
-    [themeVars.media.minWidth.sm]: { gridTemplateColumns: 'repeat(6, 1fr)' },
-    [themeVars.media.minWidth.lg]: { gridTemplateColumns: '1.25fr 2fr 1.25fr' },
+    '(min-width: 1024px)': { gridTemplateColumns: '2fr 1.25fr' },
   },
 });
 
-export const fifthSectionFormMainFieldsetClass = style({
+export const fifthSectionFormControlsClass = style({
   display: 'grid',
-  gridTemplateColumns: '2fr 1fr',
   gap: '1rem',
 
   '@media': {
-    [themeVars.media.minWidth.sm]: { gridColumn: '2 / 6' },
-    [themeVars.media.minWidth.lg]: { gridColumn: 2 },
+    [themeVars.media.minWidth.sm]: { gridTemplateColumns: '1fr 1fr' },
   },
 });
 
-export const fifthSectionFormSideFieldsetContainerClass = style({
-  '@media': {
-    [themeVars.media.minWidth.sm]: { gridColumn: 'span 3' },
-
-    [themeVars.media.minWidth.lg]: {
-      gridColumn: 1,
-      ':last-of-type': { gridColumn: 3 },
-    },
-  },
+export const fifthSectionFormInputContainerClass = style({
+  position: 'relative',
 });
 
-export const fifthSectionFormSideFieldsetClass = style({
-  display: 'grid',
-  gridTemplateColumns: '1.25fr 1fr',
-  gap: '1rem',
+globalStyle(`${fifthSectionFormInputContainerClass} > p`, {
+  vars: { [themeVars.lh]: '1.5rem' },
 
-  '@media': {
-    [themeVars.media.maxWidth.sm]: {
-      padding: '0.75rem 0.5rem 0.5rem',
-      border: `1px solid ${themeVars.colors.inversePrimary}`,
-    },
-  },
+  position: 'absolute',
+  top: '50%',
+  right: '1rem',
+  transform: 'translateY(-50%)',
+
+  fontSize: '1rem',
+  letterSpacing: '0.03125rem',
+  userSelect: 'none',
 });
 
-export const fifthSectionFormSideFieldsetLegendClass = style([
-  headlineTypographyClass.sm,
-  { marginBottom: '1rem', fontWeight: 500, textAlign: 'left' },
-]);
+export const fifthSectionResultsClass = style({
+  display: 'flex',
+  flexDirection: 'column',
 
-globalStyle(
-  `${fifthSectionFormSideFieldsetClass} > *:not(:nth-child(2), :nth-child(3))`,
-  { gridColumn: '1 / -1' },
-);
+  alignItems: 'center',
+  justifyContent: 'space-between',
+});
 
 export const fifthSectionFormSubmitBtnClass = style([
   darkThemeClass,
   {
-    '@media': {
-      [themeVars.media.minWidth.sm]: { gridColumn: '4 / 7' },
-      [themeVars.media.minWidth.lg]: { gridColumn: 3 },
+    width: '100%',
+
+    ':disabled': {
+      vars: { [buttonStateLayerColorVar]: 'transparent' },
+
+      color: '#8e9695',
+      backgroundColor: 'rgba(22, 29, 29, 0.12)',
+    },
+
+    selectors: {
+      '&:disabled:hover': { cursor: 'default', boxShadow: 'none !important' },
     },
   },
 ]);
 
-export const fifthSectionImgContainerClass = style({
-  position: 'relative',
-  gridRow: 'span 2',
+export const fifthSectionResultsWarningClass = style([
+  bodyTypographyClass.sm,
+  {
+    marginTop: '0.25rem',
+    padding: '0 1rem',
 
-  '@media': { [themeVars.media.maxWidth.lg]: { display: 'none' } },
+    textAlign: 'center',
+    color: themeVars.colors.onSurfaceVariant,
+  },
+]);
+
+globalStyle(`${fifthSectionResultsWarningClass} > button`, {
+  display: 'inline',
+  border: 'none',
+  color: 'inherit',
+  cursor: 'pointer',
+  textDecoration: 'underline',
+  backgroundColor: 'transparent',
 });
 
-globalStyle(`${fifthSectionImgContainerClass} > img`, {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  translate: '-50% -50%',
-});
+// import { globalStyle, style } from '@vanilla-extract/css';
+
+// import { buttonStateLayerColorVar } from '@/components/buttons/styles.css';
+// import { darkThemeClass, themeVars } from '@/styles/theme.css';
+
+// export const fifthSectionFormClass = style({
+//   display: 'grid',
+//   gridTemplateColumns: '1.5fr 1fr',
+//   gap: '1rem',
+
+//   marginTop: '2rem',
+// });
+
+// globalStyle(`${fifthSectionFormClass} fieldset`, {
+//   display: 'grid',
+//   gridTemplateColumns: '1fr max-content 1fr',
+//   alignItems: 'center',
+//   gap: '0.75rem',
+
+//   border: 'none',
+// });
+
+// export const fifthSectionFormRestInputsClass = style({
+//   display: 'grid',
+//   gridTemplateColumns: '1fr 1fr',
+//   gap: '1rem',
+
+//   marginTop: '1.25rem',
+// });
+
+// export const fifthSectionFormResultClass = style({
+//   padding: '1rem',
+
+//   borderRadius: '0.75rem',
+//   border: `1px solid ${themeVars.colors.outline}`,
+// });
+
+// export const fifthSectionFormInputContainerClass = style({
+//   position: 'relative',
+// });
+
+// globalStyle(`${fifthSectionFormInputContainerClass} > p`, {
+//   vars: { [themeVars.lh]: '1.5rem' },
+
+//   position: 'absolute',
+//   top: '50%',
+//   right: '1rem',
+//   transform: 'translateY(-50%)',
+
+//   fontSize: '1rem',
+//   letterSpacing: '0.03125rem',
+//   userSelect: 'none',
+// });

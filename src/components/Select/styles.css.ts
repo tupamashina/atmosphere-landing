@@ -12,7 +12,7 @@ export const selectClass = style([
     height: '100%',
     width: '100%',
     padding: '1rem',
-    paddingRight: '2.125rem',
+    paddingRight: '3rem',
     border: 'none',
     borderRadius: '0.25rem',
     boxShadow: `inset 0 0 0 1px ${themeVars.colors.outline}`,
@@ -56,6 +56,7 @@ export const selectLabelClass = style([
 
 export const selectIndicatorClass = style({
   position: 'absolute',
-  top: 'calc(50% - 0.4375rem)',
+  top: 'calc(50% - 0.75rem)',
   right: '0.75rem',
+  zIndex: -1,
 });

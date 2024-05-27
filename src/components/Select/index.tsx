@@ -1,35 +1,78 @@
-import { useId, type FC } from 'react';
+import { clsx } from 'clsx/lite';
+import {
+  forwardRef,
+  type OptionHTMLAttributes,
+  type SelectHTMLAttributes,
+} from 'react';
 
+import { useComposedRef } from '@/hooks/useComposedRef';
+import { useId } from '@/hooks/useId';
 import { Icons } from '@/icons';
 import * as styles from './styles.css';
 
-interface Props {
+import type { SetRequired } from 'type-fest';
+
+interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
-  options: string[];
+  options: SetRequired<OptionHTMLAttributes<HTMLOptionElement>, 'value'>[];
 }
 
-export const Select: FC<Props> = ({ label, options }) => {
-  const selectId = useId();
+export const Select = forwardRef<HTMLSelectElement, Props>(
+  ({ label, options, id: idProp, className, ...props }, forwardedRef) => {
+    const id = useId(idProp);
+    const ref = useComposedRef(forwardedRef);
 
-  return (
-    <div className={styles.selectContainerClass}>
-      <select id={selectId} className={styles.selectClass}>
-        {options.map((option) => (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        ))}
-      </select>
+    return (
+      <div className={styles.selectContainerClass}>
+        <select
+          id={id}
+          ref={ref}
+          className={clsx(styles.selectClass, className)}
+          {...props}
+        >
+          {options.map((optionProps) => (
+            <option key={optionProps.value.toString()} {...optionProps} />
+          ))}
+        </select>
 
-      <label htmlFor={selectId} className={styles.selectLabelClass}>
-        {label}
-      </label>
+        <label htmlFor={id} className={styles.selectLabelClass}>
+          {label}
+        </label>
 
-      <Icons.ChevronDown
-        aria-hidden
-        size="0.875rem"
-        className={styles.selectIndicatorClass}
-      />
-    </div>
-  );
-};
+        <Icons.ArrowDropDown
+          aria-hidden
+          size="1.5rem"
+          className={styles.selectIndicatorClass}
+        />
+      </div>
+    );
+  },
+);
+
+Select.displayName = 'Select';
+
+// export const Select: FC<Props> = ({ label, options, ...props }) => {
+//   const selectId = useId();
+
+//   return (
+//     <div className={styles.selectContainerClass}>
+//       <select id={selectId} className={styles.selectClass}>
+//         {options.map((option) => (
+//           <option key={option} value={option}>
+//             {option}
+//           </option>
+//         ))}
+//       </select>
+
+//       <label htmlFor={selectId} className={styles.selectLabelClass}>
+//         {label}
+//       </label>
+
+//       <Icons.ChevronDown
+//         aria-hidden
+//         size="1rem"
+//         className={styles.selectIndicatorClass}
+//       />
+//     </div>
+//   );
+// };

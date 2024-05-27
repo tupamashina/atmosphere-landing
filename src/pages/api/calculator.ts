@@ -2,9 +2,9 @@ import assert from 'assert';
 import {
   assert as assertStruct,
   integer,
-  nullable,
   number,
   object,
+  optional,
   refine,
 } from 'superstruct';
 
@@ -19,17 +19,17 @@ const struct = refine(
     returnWaterTemperature: integer(),
     supplyWaterTemperature: integer(),
 
-    totalConsumption: nullable(number()),
-    totalHeatConsumption: nullable(number()),
+    totalConsumption: optional(number()),
+    totalHeatConsumption: optional(number()),
   }),
   'calculatorData',
   ({ totalConsumption, totalHeatConsumption }) => {
-    const isTotalConsumptionNull = totalConsumption === null;
-    const isTotalHeatConsumptionNull = totalHeatConsumption === null;
+    const isTotalConsumptionUndefined = totalConsumption === undefined;
+    const isTotalHeatConsumptionUndefined = totalHeatConsumption === undefined;
 
     return (
-      (!isTotalConsumptionNull && isTotalHeatConsumptionNull) ||
-      (isTotalConsumptionNull && !isTotalHeatConsumptionNull)
+      (isTotalConsumptionUndefined && !isTotalHeatConsumptionUndefined) ||
+      (!isTotalConsumptionUndefined && isTotalHeatConsumptionUndefined)
     );
   },
 );
@@ -124,7 +124,7 @@ const getE7 = (outsideAirTemperature: number) => {
 
 //* ================================= Handler ==================================
 
-const handler: NextApiHandler = ({ body }, res) => {
+const handler: NextApiHandler = async ({ body }, res) => {
   try {
     assertStruct(body, struct);
     let { totalConsumption, totalHeatConsumption } = body;
@@ -136,17 +136,21 @@ const handler: NextApiHandler = ({ body }, res) => {
       supplyWaterTemperature,
     } = body;
 
-    if (totalConsumption === null)
+    if (totalConsumption === undefined && totalHeatConsumption !== undefined)
       totalConsumption =
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        (totalHeatConsumption! * 1000) /
+        (totalHeatConsumption * 1000) /
         (supplyWaterTemperature - returnWaterTemperature);
-    else
+    else if (
+      totalHeatConsumption === undefined &&
+      totalConsumption !== undefined
+    )
       totalHeatConsumption =
         (totalConsumption * (supplyWaterTemperature - returnWaterTemperature)) /
         1000;
 
-    assert(totalHeatConsumption !== null);
+    assert(
+      totalConsumption !== undefined && totalHeatConsumption !== undefined,
+    );
 
     // ТСМ
     const e7 = getE7(outsideAirTemperature);
@@ -169,6 +173,10 @@ const handler: NextApiHandler = ({ body }, res) => {
 
     const rubles =
       totalHeatConsumption * price - newTotalHeatConsumption * price;
+
+    await new Promise((resolve) => {
+      setTimeout(resolve, 1000);
+    });
 
     // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
     return res.status(200).json({ rubles, percentages });
