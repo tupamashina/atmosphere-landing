@@ -25,19 +25,26 @@ import * as styles from './styles.css';
 
 const Tooltip: FC<
   PropsWithChildren<Pick<CSSProperties, 'top' | 'left' | 'right' | 'bottom'>>
-> = ({ children, ...style }) => (
-  <TooltipRoot>
-    <TooltipTrigger style={style} className={styles.tooltipTriggerClass}>
-      <Icons.InfoCircleFill size="1.875rem" color={themeVars.colors.primary} />
-    </TooltipTrigger>
+> = ({ children, ...style }) => {
+  const [open, setOpen] = useState(false);
 
-    <TooltipPortal>
-      <TooltipContent sideOffset={4} className={styles.tooltipContentClass}>
-        {children}
-      </TooltipContent>
-    </TooltipPortal>
-  </TooltipRoot>
-);
+  return (
+    <TooltipRoot>
+      <TooltipTrigger style={style} className={styles.tooltipTriggerClass}>
+        <Icons.InfoCircleFill
+          size="1.875rem"
+          color={themeVars.colors.primary}
+        />
+      </TooltipTrigger>
+
+      <TooltipPortal>
+        <TooltipContent sideOffset={4} className={styles.tooltipContentClass}>
+          {children}
+        </TooltipContent>
+      </TooltipPortal>
+    </TooltipRoot>
+  );
+};
 
 export const ThirdSection: FC = () => {
   const imgRef = useRef<HTMLImageElement>(null);
