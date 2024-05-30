@@ -1,9 +1,9 @@
 import {
-  Root as TooltipRoot,
-  TooltipProvider,
-  TooltipTrigger,
-  TooltipPortal,
   TooltipContent,
+  TooltipPortal,
+  TooltipProvider,
+  Root as TooltipRoot,
+  TooltipTrigger,
 } from '@radix-ui/react-tooltip';
 import Image from 'next/image';
 import {
@@ -16,7 +16,6 @@ import {
   type PropsWithChildren,
 } from 'react';
 
-import { IconButton } from '@/components/buttons/IconButton';
 import { Icons } from '@/icons';
 import { themeVars } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
@@ -31,10 +30,7 @@ const Tooltip: FC<
   return (
     <TooltipRoot>
       <TooltipTrigger style={style} className={styles.tooltipTriggerClass}>
-        <Icons.InfoCircleFill
-          size="1.875rem"
-          color={themeVars.colors.primary}
-        />
+        <Icons.InfoCircleFill size="1.875rem" color="#4EAEAD" />
       </TooltipTrigger>
 
       <TooltipPortal>

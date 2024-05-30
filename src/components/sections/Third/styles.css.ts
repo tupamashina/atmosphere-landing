@@ -24,7 +24,7 @@ export const tooltipTriggerClass = style({
 });
 
 export const tooltipContentClass = style([
-  bodyTypographyClass.sm,
+  bodyTypographyClass.md,
   {
     maxWidth: '20rem',
     borderRadius: '0.25rem',
