@@ -40,9 +40,11 @@ export const FirstSection: FC = () => {
       <h2 className={displayTypographyClass.md}>Что мы предлагаем?</h2>
 
       <p className={styles.firstSectionSubtitleClass}>
-        Потребление тепловых энергоресурсов 1 корпусом промышленного предприятия
-        исчисляется миллионами миллиардов.{' '}
-        <span>Мы утверждаем, что эту сумму можно сократить на 27%</span>
+        Преобразуем энергию в экономию:{' '}
+        <span>
+          сократите расходы на тепловые ресурсы вашего предприятия на 27%
+        </span>
+        , выбрав наши энергосберегающие решения.
       </p>
 
       <ul className={styles.firstSectionListClass}>

@@ -33,8 +33,6 @@ export const firstSectionSubtitleClass = style([
 ]);
 
 globalStyle(`${firstSectionSubtitleClass} > span`, {
-  padding: '0 0.125rem',
-
   color: themeVars.colors.onPrimary,
   backgroundColor: themeVars.colors.primary,
 });

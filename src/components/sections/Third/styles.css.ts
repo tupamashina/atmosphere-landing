@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, keyframes, style } from '@vanilla-extract/css';
 
 import { themeVars } from '@/styles/theme.css';
 import {
@@ -21,6 +21,16 @@ export const tooltipTriggerClass = style({
   cursor: 'pointer',
   position: 'absolute',
   backgroundColor: 'transparent',
+});
+
+const name = keyframes({
+  '0%': { color: themeVars.colors.primary },
+  '50%': { color: themeVars.colors.inversePrimary },
+  '100%': { color: themeVars.colors.primary },
+});
+
+globalStyle(`${tooltipTriggerClass} > svg`, {
+  animation: `${name} 600ms linear infinite`,
 });
 
 export const tooltipContentClass = style([

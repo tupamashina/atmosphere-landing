@@ -31,11 +31,7 @@ import { Select } from '@/components/Select';
 import { TextField } from '@/components/TextField';
 import { Button } from '@/components/buttons/Button';
 import { useBetterForm } from '@/hooks/useBetterForm';
-import {
-  displayTypographyClass,
-  headlineTypographyClass,
-  titleTypographyClass,
-} from '@/styles/typography.css';
+import { displayTypographyClass } from '@/styles/typography.css';
 import circleArrows from './circle-arrows.svg';
 import circleCenter from './circle-center.svg';
 import circleShadow from './circle-right-shadow.svg';
@@ -99,7 +95,7 @@ const additionalFieldsParams = {
     max: 150,
     unit: '&deg;C',
     label: 'Температура подающей воды',
-    supportingText: 'Средняя по узлам учёта',
+    supportingText: 'Средняя за отопительный сезон',
   },
 
   returnWaterTemperature: {
@@ -107,7 +103,7 @@ const additionalFieldsParams = {
     max: 150,
     unit: '&deg;C',
     label: 'Температура обратной воды',
-    supportingText: 'Средняя по узлам учёта',
+    supportingText: 'Средняя за отопительный сезон',
   },
 
   outsideAirTemperature: {

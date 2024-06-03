@@ -37,7 +37,7 @@ const Tooltip: FC<
         className={styles.tooltipTriggerClass}
         onClick={(event) => event.preventDefault()}
       >
-        <Icons.InfoCircleFill size="2.25rem" color={themeVars.colors.primary} />
+        <Icons.InfoCircleFill size="2.25rem" />
       </TooltipTrigger>
 
       <TooltipPortal>
