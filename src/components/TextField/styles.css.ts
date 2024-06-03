@@ -130,3 +130,22 @@ export const textFieldTooltipContentClass = style([
     color: themeVars.colors.inverseOnSurface,
   },
 ]);
+
+export const textFieldSupportingTextClass = style([
+  bodyTypographyClass.sm,
+  {
+    marginTop: '0.25rem',
+    paddingLeft: '1rem',
+
+    color: themeVars.colors.onSurfaceVariant,
+    textAlign: 'left',
+
+    transition: 'color 150ms',
+
+    selectors: {
+      [`${textFieldInputClass}[aria-invalid="true"] ~ &`]: {
+        color: themeVars.colors.error,
+      },
+    },
+  },
+]);

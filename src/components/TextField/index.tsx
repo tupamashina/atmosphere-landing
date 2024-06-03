@@ -131,6 +131,8 @@ export interface TextFieldProps extends HTMLTextFieldProps {
   leadingIcon?: Icon;
   maskOptions?: MaskitoOptions;
   backgroundColor?: Exclude<StyleRule['backgroundColor'], unknown[]>;
+
+  supportingText?: string;
 }
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
@@ -144,6 +146,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
       error,
       tooltip,
       leadingIcon,
+      supportingText,
       backgroundColor,
       className,
       style,
@@ -174,15 +177,22 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
           {...props}
         />
 
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label
           htmlFor={id}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: label }}
           className={styles.textFieldLabelClass}
           style={assignInlineVars({
             [styles.textFieldLabelBackgroundColorVar]: backgroundColor,
           })}
-        >
-          {label}
-        </label>
+        />
+
+        {!!supportingText && (
+          <p className={styles.textFieldSupportingTextClass}>
+            {supportingText}
+          </p>
+        )}
 
         {leadingIcon &&
           createElement(leadingIcon, {

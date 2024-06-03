@@ -43,7 +43,7 @@ const listData = [
 ];
 
 export const FourthSection: FC = () => (
-  <section>
+  <section id="benefits">
     <h3 className={displayTypographyClass.sm}>
       Преимущества
       <span className={styles.fourthSectionSubtitleClass}>

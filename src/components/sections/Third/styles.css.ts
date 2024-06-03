@@ -27,9 +27,20 @@ export const tooltipContentClass = style([
   bodyTypographyClass.md,
   {
     maxWidth: '20rem',
-    borderRadius: '0.25rem',
-    padding: '0.25rem 0.5rem',
-    color: themeVars.colors.inverseOnSurface,
-    backgroundColor: themeVars.colors.inverseSurface,
+    padding: '0.75rem 1rem',
+
+    color: themeVars.colors.onSurfaceVariant,
+    backgroundColor: themeVars.colors.surfaceContainer,
+
+    borderRadius: '0.75rem',
+    boxShadow:
+      '0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15)',
   },
 ]);
+
+export const tooltipArrowClass = style({
+  width: '1rem',
+  height: '0.5rem',
+
+  fill: themeVars.colors.surfaceContainer,
+});

@@ -1,4 +1,6 @@
-import { Block } from '@/components/Block';
+import { Counter } from '@/components/Counter';
+import { Form } from '@/components/Form';
+import { Why } from '@/components/Why';
 import { FifthSection } from '@/components/sections/Fifth';
 import { FirstSection } from '@/components/sections/First';
 import { FourthSection } from '@/components/sections/Fourth';
@@ -10,19 +12,19 @@ import type { NextPage } from 'next';
 const IndexPage: NextPage = () => (
   <main>
     <FirstSection />
-    <Block />
+    <Form />
 
     <SecondSection />
-    <Block />
+    <Counter />
 
     <ThirdSection />
-    <Block />
+    <Why />
 
     <FourthSection />
-    <Block />
+    <Form />
 
     <FifthSection />
-    <Block />
+    <Form last />
   </main>
 );
 

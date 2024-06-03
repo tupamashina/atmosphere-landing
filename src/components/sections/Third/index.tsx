@@ -1,4 +1,5 @@
 import {
+  TooltipArrow,
   TooltipContent,
   TooltipPortal,
   TooltipProvider,
@@ -26,16 +27,33 @@ const Tooltip: FC<
   PropsWithChildren<Pick<CSSProperties, 'top' | 'left' | 'right' | 'bottom'>>
 > = ({ children, ...style }) => {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   return (
     <TooltipRoot>
-      <TooltipTrigger style={style} className={styles.tooltipTriggerClass}>
-        <Icons.InfoCircleFill size="1.875rem" color="#4EAEAD" />
+      <TooltipTrigger
+        style={style}
+        ref={triggerRef}
+        className={styles.tooltipTriggerClass}
+        onClick={(event) => event.preventDefault()}
+      >
+        <Icons.InfoCircleFill size="2.25rem" color={themeVars.colors.primary} />
       </TooltipTrigger>
 
       <TooltipPortal>
-        <TooltipContent sideOffset={4} className={styles.tooltipContentClass}>
+        <TooltipContent
+          sideOffset={4}
+          className={styles.tooltipContentClass}
+          onPointerDownOutside={(event) => {
+            if (
+              (event.target === null || event.target instanceof Node) &&
+              triggerRef.current?.contains(event.target)
+            )
+              event.preventDefault();
+          }}
+        >
           {children}
+          {/* <TooltipArrow className={styles.tooltipArrowClass} /> */}
         </TooltipContent>
       </TooltipPortal>
     </TooltipRoot>
@@ -59,7 +77,7 @@ export const ThirdSection: FC = () => {
   }, []);
 
   return (
-    <TooltipProvider delayDuration={300}>
+    <TooltipProvider delayDuration={0}>
       <section id="scheme">
         <h3 className={displayTypographyClass.sm}>КАК ЭТО РАБОТАЕТ?</h3>
 
@@ -190,8 +208,8 @@ export const ThirdSection: FC = () => {
             style={{
               position: 'absolute',
               top: '17.5%',
-              left: '27.5%',
-              fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
+              left: '25.5%',
+              fontSize: imgWidth ? imgWidth / 62.5 : '1rem',
             }}
           >
             Т<sub>нар</sub> = 5&deg;

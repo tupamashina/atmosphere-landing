@@ -32,9 +32,11 @@ export const firstSectionSubtitleClass = style([
   { marginTop: '1rem' },
 ]);
 
-globalStyle(`${firstSectionSubtitleClass} > strong`, {
-  fontWeight: 'inherit',
-  color: themeVars.colors.primary,
+globalStyle(`${firstSectionSubtitleClass} > span`, {
+  padding: '0 0.125rem',
+
+  color: themeVars.colors.onPrimary,
+  backgroundColor: themeVars.colors.primary,
 });
 
 export const firstSectionListClass = style({

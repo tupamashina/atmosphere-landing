@@ -42,7 +42,7 @@ export const FirstSection: FC = () => {
       <p className={styles.firstSectionSubtitleClass}>
         Потребление тепловых энергоресурсов 1 корпусом промышленного предприятия
         исчисляется миллионами миллиардов.{' '}
-        <strong>Мы утверждаем, что эту сумму можно сократить на 27%</strong>
+        <span>Мы утверждаем, что эту сумму можно сократить на 27%</span>
       </p>
 
       <ul className={styles.firstSectionListClass}>
