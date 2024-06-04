@@ -11,7 +11,10 @@ import {
   refine,
   nonempty,
   type Infer,
+  empty,
+  union,
 } from 'superstruct';
+import { isEmail } from 'validator';
 
 import { useBetterForm } from '@/hooks/useBetterForm';
 import { Icons } from '@/icons';
@@ -20,9 +23,15 @@ import { Button } from '../buttons/Button';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
+import type { SubmitHandler } from 'react-hook-form';
 
 const formStruct = object({
   name: trimmed(string()),
+
+  email: union([
+    empty(string()),
+    refine(nonempty(trimmed(string())), 'email', (str) => isEmail(str)),
+  ]),
 
   phone: refine(nonempty(trimmed(string())), 'phone', (str) => {
     try {
@@ -44,13 +53,22 @@ export const Form: FC<{ last?: boolean }> = ({ last }) => {
   const {
     reset,
     register,
-    setError,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = useBetterForm({
     struct: formStruct,
     defaultValues: { name: '', phone: '' },
   });
+
+  const submitHandler: SubmitHandler<FormValues> = async (data) => {
+    await fetch('/api/contact', {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    reset();
+  };
 
   return (
     <section className={styles.formClass}>
@@ -67,7 +85,11 @@ export const Form: FC<{ last?: boolean }> = ({ last }) => {
         }
       </h4>
 
-      <form className={styles.formFormClass}>
+      <form
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
+        onSubmit={handleSubmit(submitHandler)}
+        className={styles.formFormClass}
+      >
         <TextField
           label="Ваше имя"
           type="text"
@@ -89,18 +111,24 @@ export const Form: FC<{ last?: boolean }> = ({ last }) => {
           {...register('phone')}
         />
 
+        <TextField
+          label="Ваш e-mail"
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          error={!!errors.email}
+          leadingIcon={Icons.Envelope}
+          {...register('email')}
+        />
+
         <Button
-          type="reset"
+          type="submit"
           variant="filled"
+          loading={isSubmitting}
           className={styles.formFormSubmitButtonClass}
         >
           Получить экспресс-расчёт
         </Button>
-
-        <p className={styles.formFormTermsClass}>
-          Нажимая кнопку «Получить», вы соглашаетесь с{' '}
-          <a href="#">политикой обработки конфиденциальных данных</a>
-        </p>
       </form>
     </section>
   );

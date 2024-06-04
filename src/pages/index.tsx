@@ -21,7 +21,6 @@ const IndexPage: NextPage = () => (
     <Why />
 
     <FourthSection />
-    <Form />
 
     <FifthSection />
     <Form last />

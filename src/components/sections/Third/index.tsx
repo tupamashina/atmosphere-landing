@@ -20,7 +20,7 @@ import {
 import { Icons } from '@/icons';
 import { themeVars } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
-import scheme from './scheme.webp';
+import scheme from './scheme.png';
 import * as styles from './styles.css';
 
 const Tooltip: FC<
@@ -102,7 +102,7 @@ export const ThirdSection: FC = () => {
             className={styles.thirdSectionSchemeClass}
           />
 
-          <Tooltip top="14%" left="56.25%">
+          <Tooltip top="20.75%" left="52.375%">
             ТЭЦ централизованно подготавливает теплоноситель с заданными
             одинаковыми параметрами (согласно графику) для городских
             потребителей. Удаленность источника тепла от потребителей и
@@ -111,7 +111,7 @@ export const ThirdSection: FC = () => {
             гибким.
           </Tooltip>
 
-          <Tooltip top="63%" left="47.25%">
+          <Tooltip top="63.5%" left="46.625%">
             При разработке автоматического теплового пункта особое внимание
             уделяется количеству абонентов, качеству их работы, а также
             категории производимых в помещениях работ. Эффект экономии от
@@ -122,7 +122,7 @@ export const ThirdSection: FC = () => {
             приточных систем вентиляции.
           </Tooltip>
 
-          <Tooltip bottom="8.125%" left="21%">
+          <Tooltip bottom="8%" left="20%">
             В тепловом пункте происходит регулирование параметров теплоносителя,
             подготовка требуемой в данный момент времени смеси, а также
             распределение теплоносителя по потребителям. Автоматизированный
@@ -135,7 +135,7 @@ export const ThirdSection: FC = () => {
             узел коммерческого учета тепловой энергии.
           </Tooltip>
 
-          <Tooltip top="28%" left="8%">
+          <Tooltip top="27%" left="6.25%">
             Транспортировка теплоносителя от ТЭЦ до предприятия производится по
             наружным тепловым сетям. ТЭЦ обеспечивает предприятие теплоносителем
             с температурой в соответствии с собственным графиком, строго
@@ -147,14 +147,14 @@ export const ThirdSection: FC = () => {
             теплоносителя в обратном трубопроводе.
           </Tooltip>
 
-          <Tooltip bottom="27%" right="22.75%">
+          <Tooltip bottom="26.5%" right="22%">
             Каждое предприятие обладает своей уникальной системой
             энергопотребления. Не существует универсального решения или методики
             энергосбережения. Поэтому при разработке тепловых пунктов мы
             используем индивидуальный подход к каждому объекту.
           </Tooltip>
 
-          <Tooltip bottom="16.75%" right="38.5%">
+          <Tooltip bottom="14.25%" right="38%">
             Теплоноситель от теплового пункта к непосредственным потребителям
             тепла транспортируется по внутренней системе теплоснабжения. При
             разработке проекта теплового пункта особое внимание уделяется
@@ -163,7 +163,7 @@ export const ThirdSection: FC = () => {
             в административно-бытовых помещениях предприятия.
           </Tooltip>
 
-          <Tooltip top="47.25%" right="11.25%">
+          <Tooltip bottom="28%" right="5.5%">
             Регулирование теплоносителя в индивидуальном автоматизированном
             тепловом пункте позволяет управлять температурой в помещениях
             различного назначения индивидуально: в производственном цехе и в
@@ -171,7 +171,7 @@ export const ThirdSection: FC = () => {
             труда и позволяет эффективнее распределять энергоресурсы.
           </Tooltip>
 
-          <Tooltip left="23%" bottom="30.5%">
+          <Tooltip left="21.5%" bottom="37%">
             Программа для системы автоматизации разрабатывается отдельно для
             каждого предприятия с учетом его основных особенностей
             энергопотребления. С помощью системы автоматизации теплового узла
@@ -195,8 +195,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '17.5%',
-              left: '56%',
+              top: '24%',
+              left: '52.375%',
               fontWeight: 600,
               fontSize: imgWidth ? imgWidth / 68.888_888_888_888_89 : '1rem',
             }}
@@ -207,8 +207,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '17.5%',
-              left: '25.5%',
+              top: '20%',
+              left: '38%',
               fontSize: imgWidth ? imgWidth / 62.5 : '1rem',
             }}
           >
@@ -218,8 +218,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '44.375%',
-              right: '8.25%',
+              top: '41.25%',
+              right: '7.25%',
               fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
             }}
           >
@@ -229,8 +229,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '63.5%',
-              right: '8.25%',
+              top: '54%',
+              right: '7.25%',
               fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
             }}
           >
@@ -240,8 +240,19 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '29%',
-              left: '12%',
+              top: '66.5%',
+              right: '7.25%',
+              fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
+            }}
+          >
+            АБК Т<sub>ВН</sub> = 22&deg;
+          </span>
+
+          <span
+            style={{
+              position: 'absolute',
+              top: '28.25%',
+              left: '10.75%',
               color: themeVars.colors.error,
             }}
           >
@@ -251,8 +262,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '31.5%',
-              left: '5.25%',
+              top: '30.75%',
+              left: '3.5%',
               color: themeVars.colors.primary,
             }}
           >
@@ -262,8 +273,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              top: '37.5%',
-              left: '21.375%',
+              top: '37.25%',
+              left: '20.125%',
               fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
             }}
           >
@@ -284,8 +295,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              left: '21%',
-              bottom: '15.75%',
+              left: '19.5%',
+              bottom: '15.125%',
               fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
             }}
           >
@@ -295,8 +306,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              bottom: '10.75%',
-              left: '12.125%',
+              bottom: '9.75%',
+              left: '10.5%',
               color: themeVars.colors.error,
             }}
           >
@@ -306,8 +317,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              bottom: '6.5%',
-              left: '12.125%',
+              bottom: '5.5%',
+              left: '10.5%',
               color: themeVars.colors.primary,
             }}
           >
@@ -317,8 +328,8 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              bottom: '10%',
-              left: '29.75%',
+              bottom: '9%',
+              left: '28.75%',
               color: '#F7BB70',
             }}
           >

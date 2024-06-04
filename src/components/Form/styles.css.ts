@@ -80,16 +80,4 @@ globalStyle(`${formFormClass} ${textFieldLabelClass}`, {
   },
 });
 
-export const formFormSubmitButtonClass = style({ alignSelf: 'end' });
-
-export const formFormTermsClass = style([
-  bodyTypographyClass.sm,
-  {
-    alignSelf: 'start',
-    marginTop: '-0.5rem',
-
-    '@media': { '(min-width: 1100px)': { marginTop: 0 } },
-  },
-]);
-
-globalStyle(`${formFormTermsClass} > a`, { color: 'inherit' });
+export const formFormSubmitButtonClass = style({ alignSelf: 'center' });

@@ -37,12 +37,13 @@ export const FirstSection: FC = () => {
         className={styles.firstSectionBackgroundImageClass}
       />
 
-      <h2 className={displayTypographyClass.md}>Что мы предлагаем?</h2>
+      <h2 className={displayTypographyClass.md}>
+        Преобразуем энергию в экономию:
+      </h2>
 
       <p className={styles.firstSectionSubtitleClass}>
-        Преобразуем энергию в экономию:{' '}
         <span>
-          сократите расходы на тепловые ресурсы вашего предприятия на 27%
+          Cократите расходы на тепловые ресурсы вашего предприятия на 27%
         </span>
         , выбрав наши энергосберегающие решения.
       </p>

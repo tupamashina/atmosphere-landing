@@ -29,7 +29,7 @@ export const firstSectionBackgroundImageClass = style({
 
 export const firstSectionSubtitleClass = style([
   headlineTypographyClass.sm,
-  { marginTop: '1rem' },
+  { marginTop: '2rem' },
 ]);
 
 globalStyle(`${firstSectionSubtitleClass} > span`, {
@@ -41,7 +41,7 @@ export const firstSectionListClass = style({
   display: 'grid',
   gap: '1.5rem',
 
-  marginBlock: '3rem 2rem',
+  marginBlock: '4rem 2rem',
   listStyle: 'none',
 
   '@media': {

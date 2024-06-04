@@ -4,7 +4,7 @@ import { Button } from '@/components/buttons/Button';
 import { Icons } from '@/icons';
 import { darkThemeClass } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
-import img from './img.webp';
+import img from './img.png';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
