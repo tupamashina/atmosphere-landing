@@ -27,7 +27,7 @@ export const schemeClass = style({
 
 export const schemeTitleClass = style([
   headlineTypographyClass.lg,
-  { gridColumn: '1 / -1', marginBottom: '1rem', fontWeight: 500 },
+  { gridColumn: '1 / -1', marginBottom: '0.5rem', fontWeight: 500 },
 ]);
 
 export const schemeStepClass = style([
