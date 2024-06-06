@@ -31,11 +31,9 @@ import { Select } from '@/components/Select';
 import { TextField } from '@/components/TextField';
 import { Button } from '@/components/buttons/Button';
 import { useBetterForm } from '@/hooks/useBetterForm';
+import { Icons } from '@/icons';
 import { displayTypographyClass } from '@/styles/typography.css';
-import circleArrows from './circle-arrows.svg';
-import circleCenter from './circle-center.svg';
-import circleShadow from './circle-right-shadow.svg';
-import img from './img.png';
+import img from '../Second/img.png';
 import * as styles from './styles.css';
 
 import type { MaskitoOptions } from '@maskito/core';
@@ -327,23 +325,27 @@ export const FifthSection: FC = () => {
         </div>
 
         <div aria-hidden className={styles.fifthSectionFormImgContainerClass}>
-          <div style={{ width: '14.9375rem', height: '14.9375rem' }}>
-            <Image fill alt="" src={img} />
-          </div>
+          {Array.from({ length: 18 }, (_, i) => (
+            <span
+              className={styles.rubleClass}
+              style={{ left: `${(100 / 6) * (i % 6) + 1.5}%` }}
+            >
+              &#8381;
+            </span>
+          ))}
 
-          <div style={{ width: '18.75rem', height: '18.75rem' }}>
-            <Image fill alt="" src={circleCenter} />
-          </div>
+          <Image fill alt="" src={img} placeholder="blur" />
 
-          <div
-            style={{ left: '57.5%', width: '19.375rem', height: '19.375rem' }}
-          >
-            <Image fill alt="" src={circleShadow} />
-          </div>
+          <Icons.ArrowBenUpLeft
+            className={styles.fifthSectionArrowClass.left}
+          />
 
-          <div style={{ width: '20.875rem', height: '20.875rem' }}>
-            <Image fill alt="" src={circleArrows} />
-          </div>
+          <Icons.ArrowBendDownRight
+            className={styles.fifthSectionArrowClass.right}
+          />
+
+          <Icons.Coins className={styles.fifthSectionIconClass.money} />
+          <Icons.NuclearPlant className={styles.fifthSectionIconClass.energy} />
         </div>
 
         <div className={styles.fifthSectionFormResultClass}>

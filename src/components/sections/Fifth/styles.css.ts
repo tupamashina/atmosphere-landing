@@ -1,12 +1,13 @@
-import { globalStyle, style } from '@vanilla-extract/css';
+import {
+  globalStyle,
+  keyframes,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
-import { buttonStateLayerColorVar } from '@/components/buttons/styles.css';
 import { darkThemeClass, themeVars } from '@/styles/theme.css';
-import {
-  bodyTypographyClass,
-  headlineTypographyClass,
-} from '@/styles/typography.css';
+import { headlineTypographyClass } from '@/styles/typography.css';
 
 export const fifthSectionFormClass = style({
   display: 'grid',
@@ -66,33 +67,101 @@ globalStyle(`${fifthSectionFormSubmitBtnContainerClass} button`, {
   },
 });
 
-export const fifthSectionFormImgContainerClass = style({
-  position: 'relative',
+export const fifthSectionFormImgContainerClass = style([
+  headlineTypographyClass.lg,
+  {
+    position: 'relative',
 
-  gridRow: '1 / -1',
-  gridColumn: 2,
+    gridRow: '1 / -1',
+    gridColumn: 2,
 
-  height: '100%',
+    height: '100%',
 
-  '@media': { '(max-width: 1024px)': { display: 'none' } },
-});
-
-globalStyle(`${fifthSectionFormImgContainerClass} div`, {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-});
-
-globalStyle(`${fifthSectionFormImgContainerClass} div::after`, {
-  content: '',
-  display: 'block',
-  paddingBottom: '100%',
-});
+    '@media': { '(max-width: 1024px)': { display: 'none' } },
+  },
+]);
 
 globalStyle(`${fifthSectionFormImgContainerClass} img`, {
-  objectFit: 'cover',
-  borderRadius: '50%',
+  top: '50% !important',
+  left: '50% !important',
+  translate: '-50% -50%',
+
+  height: 'auto !important',
+  width: '70% !important',
+});
+
+const baseArrowClass = style({
+  position: 'absolute',
+
+  width: '19.35%',
+  height: '28.55%',
+
+  color: themeVars.colors.inversePrimary,
+});
+
+export const fifthSectionArrowClass = styleVariants({
+  left: [
+    baseArrowClass,
+    {
+      top: 0,
+      right: 0,
+      transform: 'translate(-50%, -35%)',
+    },
+  ],
+
+  right: [
+    baseArrowClass,
+    {
+      left: 0,
+      bottom: 0,
+      transform: 'translate(50%, 35%)',
+    },
+  ],
+});
+
+const baseIconClass = style({
+  position: 'absolute',
+
+  width: '8%',
+  height: '11.9%',
+
+  color: themeVars.colors.inversePrimary,
+});
+
+export const fifthSectionIconClass = styleVariants({
+  money: [
+    baseIconClass,
+    { top: 0, right: 0, transform: 'translate(-50%, -50%)' },
+  ],
+
+  energy: [
+    baseIconClass,
+    { left: 0, bottom: 0, transform: 'translate(50%, 50%)' },
+  ],
+});
+
+const rubleAnimation = keyframes({
+  '0%': { opacity: 0, bottom: 0 },
+  '20%': { opacity: 0.75, bottom: '20%' },
+  '80%': { opacity: 0.75, bottom: '80%' },
+  '100%': { opacity: 0, bottom: '100%' },
+});
+
+export const rubleClass = style({
+  opacity: 0,
+  position: 'absolute',
+  transform: 'translate(100%, 50%)',
+
+  fontWeight: 700,
+  color: themeVars.colors.inversePrimary,
+  animation: `${rubleAnimation} 5.4s linear infinite`,
+
+  selectors: Object.fromEntries(
+    Array.from({ length: 18 }, (_, i) => [
+      `&:nth-child(${i + 1})`,
+      { animationDelay: `${0.35 * i}s` },
+    ]),
+  ),
 });
 
 export const fifthSectionFormResultClass = style([
