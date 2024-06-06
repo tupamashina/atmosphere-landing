@@ -97,6 +97,7 @@ export const ThirdSection: FC = () => {
             alt=""
             src={scheme}
             quality={100}
+            draggable={false}
             placeholder="blur"
             onContextMenu={(event) => event.preventDefault()}
             className={styles.thirdSectionSchemeClass}

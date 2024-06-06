@@ -24,6 +24,7 @@ export const SecondSection: FC = () => (
         src={img}
         width={1240}
         quality={100}
+        draggable={false}
         placeholder="blur"
         onContextMenu={(event) => event.preventDefault()}
         className={styles.secondSectionImgClass}
