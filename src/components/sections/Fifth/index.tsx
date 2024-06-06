@@ -334,7 +334,7 @@ export const FifthSection: FC = () => {
             </span>
           ))}
 
-          <Image fill alt="" src={img} placeholder="blur" />
+          <Image alt="" src={img} width={400} height={400} placeholder="blur" />
 
           <Icons.ArrowBenUpLeft
             className={styles.fifthSectionArrowClass.left}

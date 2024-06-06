@@ -82,12 +82,13 @@ export const fifthSectionFormImgContainerClass = style([
 ]);
 
 globalStyle(`${fifthSectionFormImgContainerClass} img`, {
-  top: '50% !important',
-  left: '50% !important',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
   translate: '-50% -50%',
 
-  height: 'auto !important',
-  width: '70% !important',
+  height: 'auto',
+  width: '70%',
 });
 
 const baseArrowClass = style({
