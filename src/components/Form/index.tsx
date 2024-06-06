@@ -2,8 +2,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
 
 import { maskitoPhoneOptionsGenerator } from '@maskito/phone';
+import {
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogOverlay,
+  DialogPortal,
+  Root as DialogRoot,
+  DialogTitle,
+} from '@radix-ui/react-dialog';
 import { parsePhoneNumberWithError } from 'libphonenumber-js';
 import metadata from 'libphonenumber-js/metadata.max.json';
+import { useRef, useState, useSyncExternalStore, type FC } from 'react';
 import {
   object,
   trimmed,
@@ -18,11 +28,18 @@ import { isEmail } from 'validator';
 
 import { useBetterForm } from '@/hooks/useBetterForm';
 import { Icons } from '@/icons';
+import { headlineTypographyClass } from '@/styles/typography.css';
+import {
+  headerDialogOverlayClass,
+  headerDialogContentClass,
+  headerDialogDescriptionClass,
+  headerDialogCloseButtonClass,
+} from '../Header/styles.css';
 import { TextField } from '../TextField';
+import { Transition } from '../Transition';
 import { Button } from '../buttons/Button';
 import * as styles from './styles.css';
 
-import type { FC } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 
 const formStruct = object({
@@ -49,7 +66,19 @@ const phoneFieldMask = maskitoPhoneOptionsGenerator({
   countryIsoCode: 'RU',
 });
 
+// eslint-disable-next-line unicorn/consistent-function-scoping
+const noopSubscribe = () => () => {};
+
 export const Form: FC<{ last?: boolean }> = ({ last }) => {
+  const dialogOverlayRef = useRef<HTMLDivElement>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const isMounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+
   const {
     reset,
     register,
@@ -68,6 +97,7 @@ export const Form: FC<{ last?: boolean }> = ({ last }) => {
     });
 
     reset();
+    setIsDialogOpen(true);
   };
 
   return (
@@ -130,6 +160,45 @@ export const Form: FC<{ last?: boolean }> = ({ last }) => {
           Получить экспресс-расчёт
         </Button>
       </form>
+
+      <DialogRoot open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        {isMounted && (
+          <Transition
+            in={isDialogOpen}
+            nodeRef={dialogOverlayRef}
+            mountOnEnter
+            unmountOnExit
+            onExited={reset}
+          >
+            <DialogPortal forceMount>
+              <DialogOverlay
+                ref={dialogOverlayRef}
+                className={headerDialogOverlayClass}
+              >
+                <DialogContent className={headerDialogContentClass}>
+                  <DialogTitle className={headlineTypographyClass.sm}>
+                    Заявка зарегистрирована
+                  </DialogTitle>
+
+                  <DialogDescription className={headerDialogDescriptionClass}>
+                    Спасибо! Скоро с вами свяжется специалист отдела продаж, не
+                    завешивайте зеркала ночью и отверните все иконы
+                  </DialogDescription>
+
+                  <DialogClose asChild>
+                    <Button
+                      variant="text"
+                      className={headerDialogCloseButtonClass}
+                    >
+                      Закрыть
+                    </Button>
+                  </DialogClose>
+                </DialogContent>
+              </DialogOverlay>
+            </DialogPortal>
+          </Transition>
+        )}
+      </DialogRoot>
     </section>
   );
 };
