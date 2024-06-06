@@ -12,7 +12,7 @@ export const thirdSectionSubtitleClass = style([
 ]);
 
 export const thirdSectionSchemeClass = style({
-  maxWidth: '100%',
+  width: '100%',
   height: 'auto',
 });
 

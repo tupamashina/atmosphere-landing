@@ -30,10 +30,11 @@ import {
 import { Select } from '@/components/Select';
 import { TextField } from '@/components/TextField';
 import { Button } from '@/components/buttons/Button';
+import { IS_DEV, IS_PROD } from '@/const';
 import { useBetterForm } from '@/hooks/useBetterForm';
 import { Icons } from '@/icons';
 import { displayTypographyClass } from '@/styles/typography.css';
-import img from '../Second/img.png';
+import img from '../Second/img.webp';
 import * as styles from './styles.css';
 
 import type { MaskitoOptions } from '@maskito/core';
@@ -335,12 +336,13 @@ export const FifthSection: FC = () => {
           ))}
 
           <Image
+            // 26.62
             alt=""
             src={img}
-            width={400}
-            height={400}
             placeholder="blur"
-            draggable={false}
+            draggable={IS_DEV}
+            onContextMenu={(event) => IS_PROD && event.preventDefault()}
+            sizes="(min-width: 1304px) 350px, 26.6vw"
           />
 
           <Icons.ArrowBenUpLeft

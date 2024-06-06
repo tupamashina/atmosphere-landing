@@ -17,10 +17,11 @@ import {
   type PropsWithChildren,
 } from 'react';
 
+import { IS_DEV, IS_PROD } from '@/const';
 import { Icons } from '@/icons';
 import { themeVars } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
-import scheme from './scheme.png';
+import scheme from './scheme.webp';
 import * as styles from './styles.css';
 
 const Tooltip: FC<
@@ -93,14 +94,14 @@ export const ThirdSection: FC = () => {
           }}
         >
           <Image
-            ref={imgRef}
             alt=""
+            ref={imgRef}
             src={scheme}
-            quality={100}
-            draggable={false}
             placeholder="blur"
-            onContextMenu={(event) => event.preventDefault()}
+            draggable={IS_DEV}
+            sizes="(min-width: 1304px) 1240px, 100vw"
             className={styles.thirdSectionSchemeClass}
+            onContextMenu={(event) => IS_PROD && event.preventDefault()}
           />
 
           <Tooltip top="20.75%" left="52.375%">

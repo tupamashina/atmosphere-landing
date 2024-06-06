@@ -1,10 +1,11 @@
 import Image from 'next/image';
 
 import { Button } from '@/components/buttons/Button';
+import { IS_DEV, IS_PROD } from '@/const';
 import { Icons } from '@/icons';
 import { darkThemeClass } from '@/styles/theme.css';
 import { displayTypographyClass } from '@/styles/typography.css';
-import img from './img.png';
+import img from './img.webp';
 import * as styles from './styles.css';
 
 import type { FC } from 'react';
@@ -22,12 +23,11 @@ export const SecondSection: FC = () => (
       <Image
         alt=""
         src={img}
-        width={1240}
-        quality={100}
-        draggable={false}
+        draggable={IS_DEV}
         placeholder="blur"
-        onContextMenu={(event) => event.preventDefault()}
         className={styles.secondSectionImgClass}
+        onContextMenu={(event) => IS_PROD && event.preventDefault()}
+        sizes="(min-width: 1304px) 1240px, 100vw"
       />
 
       <Button
