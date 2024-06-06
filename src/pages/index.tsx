@@ -1,5 +1,6 @@
 import { Counter } from '@/components/Counter';
 import { Form } from '@/components/Form';
+import { Scheme } from '@/components/Scheme';
 import { Why } from '@/components/Why';
 import { FifthSection } from '@/components/sections/Fifth';
 import { FirstSection } from '@/components/sections/First';
@@ -21,6 +22,7 @@ const IndexPage: NextPage = () => (
     <Why />
 
     <FourthSection />
+    <Scheme />
 
     <FifthSection />
     <Form last />

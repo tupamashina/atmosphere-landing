@@ -55,7 +55,7 @@ interface FieldParams {
 const mainFieldsParams = {
   totalConsumption: {
     min: 0.001,
-    max: 30_000,
+    max: 1_500_000,
     precision: 3,
     unit: 'т/сез.',
     label: 'Суммарный расход',
