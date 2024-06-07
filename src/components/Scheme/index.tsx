@@ -18,7 +18,7 @@ const steps = [
 
   {
     text: 'Предпроектное, проектное, закупка, монтаж, пусковая наладка',
-    icon: Icons.Cigarette,
+    icon: Icons.Gear,
   },
 
   {
@@ -29,13 +29,20 @@ const steps = [
 
 export const Scheme: FC = () => (
   <section className={styles.schemeClass}>
-    <p className={styles.schemeTitleClass}>Схема работы</p>
+    <p className={styles.schemeTitleClass}>Этапы работы</p>
 
-    {steps.map(({ text, icon: Icon }, index) => (
+    {steps.map(({ text, icon: Icon }, index, { length }) => (
       <div key={text} className={styles.schemeStepClass}>
         <span>{index + 1}</span>
-        <Icon size="3.5rem" />
+        <Icon size="3.5rem" className={styles.schemeStepIconClass} />
         {text}
+
+        {index !== length - 1 && (
+          <Icons.ArrowRight
+            size="2rem"
+            className={styles.schemeStepArrowClass}
+          />
+        )}
       </div>
     ))}
   </section>

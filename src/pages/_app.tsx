@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { Top } from '@/components/Top';
 
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
@@ -38,6 +39,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
     </Head>
 
     <Header />
+    <Top />
     <Component {...pageProps} />
     <Footer />
 

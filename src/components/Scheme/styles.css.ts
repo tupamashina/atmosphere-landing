@@ -33,6 +33,7 @@ export const schemeTitleClass = style([
 export const schemeStepClass = style([
   bodyTypographyClass.lg,
   {
+    position: 'relative',
     gridColumn: 'span 2',
 
     display: 'flex',
@@ -54,10 +55,29 @@ export const schemeStepClass = style([
   },
 ]);
 
-globalStyle(`${schemeStepClass} svg`, { margin: '1rem 0' });
+export const schemeStepIconClass = style({
+  margin: '1rem 0',
+  transition: 'transform 150ms',
+
+  ':hover': { transform: 'scale(1.15)' },
+});
+
+export const schemeStepArrowClass = style({
+  position: 'absolute',
+  top: '4rem',
+  right: '-1.625rem',
+
+  '@media': { 'not all and (min-width: 1024px)': { display: 'none' } },
+});
 
 globalStyle(`${schemeStepClass} span`, {
   vars: { [themeVars.lh]: '2rem' },
+
+  width: '2.25rem',
+
   fontSize: '1.5rem',
   fontWeight: 700,
+
+  border: '2px solid currentColor',
+  borderRadius: '50%',
 });
