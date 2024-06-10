@@ -31,12 +31,12 @@ const Tooltip: FC<
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   return (
-    <TooltipRoot>
+    <TooltipRoot open={open} onOpenChange={setOpen}>
       <TooltipTrigger
         style={style}
         ref={triggerRef}
         className={styles.tooltipTriggerClass}
-        onClick={(event) => event.preventDefault()}
+        onClick={() => setTimeout(() => setOpen(true), 0)}
       >
         <Icons.InfoCircleFill size="2.25rem" />
       </TooltipTrigger>
