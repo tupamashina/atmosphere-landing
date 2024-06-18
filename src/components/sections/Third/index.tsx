@@ -297,17 +297,6 @@ export const ThirdSection: FC = () => {
           <span
             style={{
               position: 'absolute',
-              left: '19.5%',
-              bottom: '15.125%',
-              fontSize: imgWidth ? imgWidth / 77.5 : '1rem',
-            }}
-          >
-            Тепловой пункт
-          </span>
-
-          <span
-            style={{
-              position: 'absolute',
               bottom: '9.75%',
               left: '10.5%',
               color: themeVars.colors.error,
