@@ -28,7 +28,7 @@ export const firstSectionBackgroundImageClass = style({
 });
 
 export const firstSectionSubtitleClass = style([
-  headlineTypographyClass.sm,
+  headlineTypographyClass.md,
   { marginTop: '2rem' },
 ]);
 

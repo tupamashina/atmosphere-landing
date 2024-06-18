@@ -45,7 +45,8 @@ export const FirstSection: FC = () => {
         <span>
           Cократите расходы на тепловые ресурсы вашего предприятия на 27%
         </span>
-        , выбрав наши энергосберегающие решения.
+        ,<br />
+        выбрав наши решения.
       </p>
 
       <ul className={styles.firstSectionListClass}>
