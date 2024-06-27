@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Icons } from '@/icons';
 import * as styles from './styles.css';
 
@@ -17,7 +19,7 @@ export const Footer: FC = () => (
       </p>
 
       <div>
-        <a href="/privacy">Политика конфиденциальности</a>
+        <Link href="/privacy">Политика конфиденциальности</Link>
       </div>
     </div>
 
