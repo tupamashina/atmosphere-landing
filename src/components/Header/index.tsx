@@ -128,12 +128,15 @@ export const Header: FC = () => {
 
       <div className={styles.headerContactInfoClass}>
         <div>
-          <a href="tel:84956929595" className={styles.contactLinkClass.tel}>
-            8 4956 92-95-95
+          <a href="tel:+78482781008" className={styles.contactLinkClass.tel}>
+            +7 (8482) 78-10-08
           </a>
 
-          <a href="mailto:duma@gov.ru" className={styles.contactLinkClass.mail}>
-            duma@gov.ru
+          <a
+            href="mailto:zakaz@atm-itp.ru"
+            className={styles.contactLinkClass.mail}
+          >
+            zakaz@atm-itp.ru
           </a>
         </div>
 
@@ -171,9 +174,8 @@ export const Header: FC = () => {
                         <DialogDescription
                           className={styles.headerDialogDescriptionClass}
                         >
-                          Спасибо! Скоро с вами свяжется специалист отдела
-                          продаж, не завешивайте зеркала ночью и отверните все
-                          иконы
+                          Спасибо, Ваша заявка отправлена. Ожидайте, скоро мы с
+                          Вами свяжемся
                         </DialogDescription>
 
                         <DialogClose asChild>

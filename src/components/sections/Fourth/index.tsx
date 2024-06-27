@@ -204,8 +204,8 @@ export const FourthSection: FC = () => {
                       <DialogDescription
                         className={headerDialogDescriptionClass}
                       >
-                        Спасибо! Скоро с вами свяжется специалист отдела продаж,
-                        не завешивайте зеркала ночью и отверните все иконы
+                        Спасибо, Ваша заявка отправлена. Ожидайте, скоро мы с
+                        Вами свяжемся
                       </DialogDescription>
 
                       <DialogClose asChild>

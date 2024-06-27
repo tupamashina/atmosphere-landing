@@ -17,22 +17,19 @@ export const Footer: FC = () => (
       </p>
 
       <div>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">Политика конфиденциальности</a>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <a href="#">Публичная оферта</a>
+        <a href="/privacy">Политика конфиденциальности</a>
       </div>
     </div>
 
     <div>
       <span>
         <Icons.Phone size="1.25rem" />
-        <a href="tel:84956929595">8 4956 92-95-95</a>
+        <a href="tel:+78482781008">+7 (8482) 78-10-08</a>
       </span>
 
       <span>
         <Icons.Envelope size="1.25rem" />
-        <a href="mailto:duma@gov.ru">duma@gov.ru</a>
+        <a href="mailto:zakaz@atm-itp.ru">zakaz@atm-itp.ru</a>
       </span>
     </div>
   </footer>
