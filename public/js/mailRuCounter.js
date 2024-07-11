@@ -1,9 +1,1 @@
-var _tmr = window._tmr || (window._tmr = []);
-_tmr.push({id: "3535296", type: "pageView", start: (new Date()).getTime()});
-(function (d, w, id) {
-  if (d.getElementById(id)) return;
-  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-  ts.src = "https://top-fwz1.mail.ru/js/code.js";
-  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
-  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-})(document, window, "tmr-code");
+var _tmr=window._tmr||(window._tmr=[]);_tmr.push({id:"3535296",type:"pageView",start:new Date().getTime()}),function(e,t,r){if(!e.getElementById(r)){var a=e.createElement("script");a.type="text/javascript",a.async=!0,a.id=r,a.src="https://top-fwz1.mail.ru/js/code.js";var n=function(){var t=e.getElementsByTagName("script")[0];t.parentNode.insertBefore(a,t)};"[object Opera]"==t.opera?e.addEventListener("DOMContentLoaded",n,!1):n()}}(document,window,"tmr-code");
