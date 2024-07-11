@@ -1,10 +1,12 @@
 import { Open_Sans } from 'next/font/google';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { Top } from '@/components/Top';
+import { srOnlyClass } from '@/styles/utils.css';
 
 import type { AppProps } from 'next/app';
 import type { FC } from 'react';
@@ -65,6 +67,19 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       {isIndex && <Top />}
       <Component {...pageProps} />
       {isIndex && <Footer />}
+
+      <Script src="/js/mailRuCounter.js" />
+      <Script src="/js/yandexMetrikaCounter.js" />
+
+      <noscript>
+        {[
+          'https://mc.yandex.ru/watch/97805327',
+          'https://top-fwz1.mail.ru/counter?id=3535296;js=na',
+        ].map((src) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img alt="" src={src} className={srOnlyClass} />
+        ))}
+      </noscript>
 
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx global>{`

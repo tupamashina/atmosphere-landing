@@ -2,8 +2,8 @@
 module.exports = {
   root: true,
   env: { node: true, browser: true },
-  ignorePatterns: ['.eslintrc.js', 'next.config.mjs'],
   parserOptions: { project: true, tsconfigRootDir: __dirname },
+  ignorePatterns: ['public/js', '.eslintrc.js', 'next.config.mjs',],
   settings: { 'import/resolver': { typescript: { alwaysTryTypes: true } } },
 
   extends: [
