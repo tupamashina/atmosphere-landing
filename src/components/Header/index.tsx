@@ -128,8 +128,8 @@ export const Header: FC = () => {
 
       <div className={styles.headerContactInfoClass}>
         <div>
-          <a href="tel:+78482781008" className={styles.contactLinkClass.tel}>
-            +7 (8482) 78-10-08
+          <a href="tel:88002223163" className={styles.contactLinkClass.tel}>
+            8 (8002) 22-31-63
           </a>
 
           <a

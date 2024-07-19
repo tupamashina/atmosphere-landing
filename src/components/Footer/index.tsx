@@ -26,7 +26,7 @@ export const Footer: FC = () => (
     <div>
       <span>
         <Icons.Phone size="1.25rem" />
-        <a href="tel:+78482781008">+7 (8482) 78-10-08</a>
+        <a href="tel:88002223163">8 (8002) 22-31-63</a>
       </span>
 
       <span>
