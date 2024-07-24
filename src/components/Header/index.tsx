@@ -129,7 +129,11 @@ export const Header: FC = () => {
       <div className={styles.headerContactInfoClass}>
         <div>
           <a href="tel:88002223163" className={styles.contactLinkClass.tel}>
-            8 (8002) 22-31-63
+            8 (800) 222-31-63
+          </a>
+
+          <a href="tel:+79270282507" className={styles.contactLinkClass.tel}>
+            +7 (927) 028-25-07
           </a>
 
           <a

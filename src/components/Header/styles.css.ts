@@ -7,10 +7,7 @@ import {
 
 import { layoutPaddingInlineVar } from '@/styles/global.css';
 import { darkThemeClass, themeVars } from '@/styles/theme.css';
-import {
-  bodyTypographyClass,
-  titleTypographyClass,
-} from '@/styles/typography.css';
+import { bodyTypographyClass } from '@/styles/typography.css';
 import {
   textFieldLabelBackgroundColorVar,
   textFieldLabelClass,
@@ -93,7 +90,7 @@ const baseContactLinkClass = style({
 export const contactLinkClass = styleVariants({
   tel: [
     baseContactLinkClass,
-    titleTypographyClass.lg,
+    bodyTypographyClass.lg,
     { textDecoration: 'none' },
   ],
 
